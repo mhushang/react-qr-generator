@@ -1,0 +1,25 @@
+.custom-control-input {
+  &:focus,
+  &:active,
+  &:visited {
+    ~ {
+      .custom-control-label {
+        &::before {
+          box-shadow: none !important;
+          border-color: #39b980;
+        }
+      }
+    }
+  }
+}
+.custom-control-input {
+  &:checked {
+    ~ {
+      .custom-control-label {
+        &::before {
+          border: none;
+        }
+      }
+    }
+  }
+}

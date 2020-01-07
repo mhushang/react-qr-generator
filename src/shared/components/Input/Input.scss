@@ -1,0 +1,109 @@
+$greenColor: #39b980;
+
+.Input {
+  .error-text {
+    height: 25px;
+    font-size: 12px;
+    padding-left: 5px;
+  }
+
+  .form-group {
+    padding-bottom: 1px !important;
+  }
+
+  .border-radius {
+    border-radius: 6px;
+  }
+
+  .form-control {
+    box-shadow: none !important;
+    font-size: 24px;
+    padding-bottom: 0;
+    font-family: "Montserrat-Medium";
+  }
+  .green-border {
+    border: 2px solid $greenColor;
+    border-radius: 6px;
+  }
+
+  .border-danger {
+    border: 2px solid red !important;
+  }
+
+  .has-float-label {
+    margin-top: 6px;
+    margin-bottom: 0;
+    display: block;
+    position: relative;
+  }
+  .has-float-label label,
+  .has-float-label > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: text;
+    font-size: 13px;
+    color: #aaa;
+    opacity: 1;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    top: -0.5em;
+    left: 0.75rem;
+    z-index: 3;
+    line-height: 1;
+    padding: 0 1px;
+  }
+
+  .has-float-label label::after,
+  .has-float-label > span::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    background: white;
+    height: 2px;
+    top: 50%;
+    left: -0.2em;
+    right: -0.2em;
+    z-index: -1;
+  }
+
+  .has-float-label .form-control::placeholder {
+    opacity: 0;
+    margin-top: 2rem;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+
+  .has-float-label .form-control:placeholder-shown:not(:focus)::placeholder {
+    opacity: 0;
+  }
+  .has-float-label .form-control:placeholder-shown:not(:focus) + * {
+    font-size: 16px;
+    opacity: 0.5;
+    top: 0.6em;
+    box-shadow: none;
+  }
+
+  .input-group .has-float-label {
+    flex-grow: 1;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .input-group .has-float-label .form-control {
+    width: 100%;
+    border-radius: 0.25rem;
+  }
+  .input-group .has-float-label:not(:last-child),
+  .input-group .has-float-label:not(:last-child) .form-control {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-right: 0;
+  }
+  .input-group .has-float-label:not(:first-child),
+  .input-group .has-float-label:not(:first-child) .form-control {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
