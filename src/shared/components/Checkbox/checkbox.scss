@@ -12,6 +12,11 @@
     }
   }
 }
+.custom-control-label::before,
+::after {
+  width: 26px !important;
+  height: 26px !important;
+}
 .custom-control-input {
   &:checked {
     ~ {

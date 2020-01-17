@@ -1,0 +1,168 @@
+.Form {
+  padding-top: 40px;
+  padding-bottom: 50px;
+
+  .pdf-preview-size {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    .preview-size-text {
+      font-size: 18px;
+      line-height: 150%;
+      width: 54%;
+    }
+
+    .preview-size-block {
+      display: flex;
+      width: 46%;
+      justify-content: space-between;
+      .preview-size-block-item {
+        cursor: pointer;
+        padding: 12px 24px;
+        border: 1px solid #dfe4e9;
+        border-radius: 4px;
+      }
+
+      .preview-size-block-item.active {
+        background: #f4fbf9;
+        border: 2px solid #39b980;
+        padding: 11px 23px;
+      }
+    }
+  }
+
+  .custom-checkbox
+    .custom-control-input:checked
+    ~ .custom-control-label::before {
+    background-color: #3bba80;
+  }
+  .custom-control-input:active ~ .custom-control-label::before {
+    background-color: #3bba80;
+    border-color: #3bba80 !important;
+  }
+
+  .custom-checkbox {
+    margin-bottom: 60px !important;
+  }
+
+  .button {
+    padding: 17px 38px;
+    background-color: teal !important;
+  }
+
+  .button.margin-top {
+    margin-top: -40px;
+  }
+
+  .file-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+  .btn-upload {
+    width: 80%;
+    margin-right: 20px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  .btn-upload input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    display: block;
+  }
+  .btn {
+    padding: 18px 28px;
+    background: #dfe4e9;
+    border: 1px solid #dfe4e9;
+    color: #a6abb0;
+    border: 0;
+  }
+
+  .custom-input {
+    padding: 24px 24px 24px 0;
+    border-top: none;
+    border-radius: unset;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    border-bottom: 2px solid #3bba80;
+    &:active,
+    &:focus {
+      border-bottom: 2px solid #3bba80;
+    }
+  }
+  .form-control:focus {
+    box-shadow: none !important;
+  }
+
+  .trash {
+    cursor: pointer;
+    border-bottom: 2px solid #dfe4e9;
+    padding-bottom: 24px;
+    width: 150px;
+  }
+
+  .custom-control-label {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  .checkbox-text {
+    margin-left: 16px !important;
+    width: 100px;
+    position: absolute;
+    padding-top: 8px;
+  }
+
+  .qr-image {
+    width: 126px;
+    height: 126px;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 302px;
+  }
+
+  .merchant {
+    margin-top: 60px;
+    margin-left: 292px;
+    position: absolute;
+  }
+
+  .merchant-logo {
+    width: 100%;
+    max-width: 143px;
+    height: 100%;
+    max-height: 26px;
+  }
+
+  .error-block {
+    margin-bottom: 60px;
+    display: flex;
+    align-items: center;
+    background: #f4fbf9;
+    border-radius: 4px;
+
+    padding: 15px;
+
+    .error-text {
+      margin-left: 15px;
+      font-size: 14.6px;
+      line-height: 22px;
+      color: #73787d;
+      .bot-name {
+        font-family: "Montserrat-Bold";
+      }
+    }
+  }
+}

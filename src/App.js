@@ -1,20 +1,29 @@
-import React from 'react';
-import './App.scss';
+import React, { useState } from "react";
+import "./App.scss";
 
-import logo from './shared/assets/images/logo.svg';
-import option1 from './shared/assets/images/sada-1.svg';
-import option2 from './shared/assets/images/sada-2.svg';
-import option3 from './shared/assets/images/sada-3.svg';
-import option4 from './shared/assets/images/sada-4.svg';
-import option5 from './shared/assets/images/sada-5.svg';
+import logo from "./shared/assets/images/logo.svg";
+import option1 from "./shared/assets/images/sada-1.svg";
+import option2 from "./shared/assets/images/sada-2.svg";
+import option3 from "./shared/assets/images/sada-3.svg";
+import option4 from "./shared/assets/images/sada-4.svg";
+import option5 from "./shared/assets/images/sada-5.svg";
+import Form from "./components/Form/Form";
 
 function App() {
+  const [activeTable, setActiveTable] = useState(1);
+
+  function toggleActiveTable(index) {
+    setActiveTable(index);
+  }
+
   return (
     <div className="App">
       {/**Navbar */}
-      <nav class="navbar navbar-light">
+      <nav className="navbar navbar-light">
         <div className="container">
-          <a class="navbar-brand" href="#"><img src={logo} alt="logo" /></a>
+          <div className="navbar-brand">
+            <img src={logo} alt="logo" />
+          </div>
         </div>
       </nav>
       {/**Body */}
@@ -31,7 +40,12 @@ function App() {
             <div className="row options-wrapper">
               {/**Options */}
               <div className="col-md-3 col-lg-2">
-                <div className="card-option">
+                <div
+                  onClick={() => toggleActiveTable(1)}
+                  className={
+                    activeTable === 1 ? "card-option active" : "card-option"
+                  }
+                >
                   <div className="img-block">
                     <img className="" src={option1} alt="option" />
                   </div>
@@ -39,7 +53,12 @@ function App() {
                 </div>
               </div>
               <div className="col-md-3 col-lg-2">
-                <div className="card-option">
+                <div
+                  onClick={() => toggleActiveTable(2)}
+                  className={
+                    activeTable === 2 ? "card-option active" : "card-option"
+                  }
+                >
                   <div className="img-block">
                     <img className="" src={option2} alt="option" />
                   </div>
@@ -47,7 +66,12 @@ function App() {
                 </div>
               </div>
               <div className="col-md-3 col-lg-2">
-                <div className="card-option">
+                <div
+                  onClick={() => toggleActiveTable(3)}
+                  className={
+                    activeTable === 3 ? "card-option active" : "card-option"
+                  }
+                >
                   <div className="img-block">
                     <img className="" src={option3} alt="option" />
                   </div>
@@ -55,7 +79,12 @@ function App() {
                 </div>
               </div>
               <div className="col-md-3 col-lg-2">
-                <div className="card-option">
+                <div
+                  onClick={() => toggleActiveTable(4)}
+                  className={
+                    activeTable === 4 ? "card-option active" : "card-option"
+                  }
+                >
                   <div className="img-block">
                     <img className="" src={option4} alt="option" />
                   </div>
@@ -63,7 +92,12 @@ function App() {
                 </div>
               </div>
               <div className="col-md-3 col-lg-2">
-                <div className="card-option">
+                <div
+                  onClick={() => toggleActiveTable(5)}
+                  className={
+                    activeTable === 5 ? "card-option active" : "card-option"
+                  }
+                >
                   <div className="img-block">
                     <img src={option5} alt="option" />
                   </div>
@@ -72,12 +106,22 @@ function App() {
               </div>
               <div className="col-md-3 col-lg-2">
                 <div className="card-option disabled">
-                  Агар дигар намуди табличка лозим бошад ба <span className="fw-bold">@alifmarketing</span> муроҷиат кунед.
+                  <a
+                    href="https://t.me/alifmarketing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="marketing-link"
+                  >
+                    Агар дигар намуди табличка лозим бошад ба{" "}
+                    <span className="fw-bold">@alifmarketing</span> муроҷиат
+                    кунед.
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <Form tableId={activeTable} />
       </div>
     </div>
   );

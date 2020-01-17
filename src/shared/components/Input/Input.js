@@ -10,6 +10,7 @@ function Input(props) {
     className,
     type,
     change,
+    onInputBlur,
     value,
     id,
     validate,
@@ -28,8 +29,8 @@ function Input(props) {
       <div
         className={
           validate
-            ? "form-group col-lg-11 col-md-12 col-sm-12 green-border border-radius mb-0"
-            : "form-group col-lg-11 col-md-12 col-sm-12 border-radius border border-danger mb-0"
+            ? "form-group col-lg-12 col-md-12 col-sm-12 green-border border-radius mb-0"
+            : "form-group col-lg-12 col-md-12 col-sm-12 border-radius border border-danger mb-0"
         }
       >
         <label className="has-float-label">
@@ -40,6 +41,7 @@ function Input(props) {
             maxLength={maxLength}
             onChange={e => change(e)}
             placeholder={placeholder}
+            onBlur={onInputBlur}
             id={id}
             required
           />
@@ -65,6 +67,7 @@ Input.prototype = {
   type: PropTypes.string,
   className: PropTypes.string,
   change: PropTypes.func,
+  onInputBlur: PropTypes.func,
   value: PropTypes.string,
   id: PropTypes.string,
   maxLength: PropTypes.string,

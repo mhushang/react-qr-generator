@@ -1,92 +1,105 @@
 .App {
-    // navbar
-    .navbar {
-        height: 80px;
-        background-color: #F7F8F9;
+  // navbar
+  .navbar {
+    height: 80px;
+    background-color: #f7f8f9;
 
-        .navbar-brand {
-            >img {
-                max-height: 36px;
-            }
-        }
+    .navbar-brand {
+      > img {
+        max-height: 36px;
+      }
+    }
+  }
+
+  // body
+  .body-wrapper {
+    .title-h1 {
+      font-size: 36px;
+      line-height: 44px;
+      color: #222222;
+      font-family: Montserrat-Bold;
+
+      padding: 30px 0;
     }
 
-    // body
-    .body-wrapper {
-        .title-h1 {
-            font-size: 36px;
-            line-height: 44px;
-            color: #222222;
-            font-family: Montserrat-Bold;
-
-            padding: 30px 0;
-        }
-
-        .title-h6 {
-            font-weight: 500;
-            font-size: 18px;
-            line-height: 150%;
-            color: #222222;
-        }
-
-        .options-wrapper {
-            margin-top: 8px;
-            display: flex;
-
-            >.col-md-3 {
-                display: flex;
-            }
-        }
-
-        .card-option {
-            border: 1px solid #DFE4E9;
-            box-sizing: border-box;
-            border-radius: 4px;
-            text-align: center;
-            padding: 14px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: 0.2s;
-
-            .img-block {
-                padding: 8px;
-
-                img {
-                    max-height: 71px;
-                    max-width: 106px;
-                }
-            }
-
-            .card-description {
-                font-size: 16px;
-                line-height: 24px;
-                text-align: center;
-                color: #222222;
-            }
-
-            &:hover {
-                background: #F4FBF9;
-                border: 1px solid #39B980;
-                border-radius: 4px;
-            }
-        }
-
-        .card-option.disabled {
-            background: #F7F8F9;
-            border-radius: 4px;
-            color: #73787D;
-            font-size: 13px;
-            border: none;
-            line-height: 22px;
-            display: flex;
-            text-align: left;
-            justify-content: center;
-        }
+    .title-h6 {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 150%;
+      color: #222222;
     }
+
+    .options-wrapper {
+      margin-top: 8px;
+      display: flex;
+
+      > .col-md-3 {
+        display: flex;
+      }
+    }
+
+    .card-option {
+      cursor: pointer;
+      border: 1px solid #dfe4e9;
+      box-sizing: border-box;
+      border-radius: 4px;
+      text-align: center;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: 0.2s;
+
+      .img-block {
+        padding: 8px;
+
+        img {
+          max-height: 71px;
+          max-width: 106px;
+        }
+      }
+
+      .card-description {
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        color: #222222;
+      }
+
+      &:hover {
+        background: #f4fbf9;
+        border: 2px solid #39b980;
+        padding: 13px;
+      }
+      .marketing-link {
+        color: #222222;
+        text-decoration: none;
+      }
+    }
+    .card-option.active {
+      background: #f4fbf9;
+      border: 2px solid #39b980;
+      padding: 13px;
+    }
+
+    .card-option.disabled {
+      background: #f7f8f9;
+      border-radius: 4px;
+      color: #73787d;
+      font-size: 13px;
+      border: none;
+      line-height: 22px;
+      display: flex;
+      text-align: left;
+      justify-content: center;
+      &:hover {
+        padding: 14px;
+      }
+    }
+  }
 }
 
 .fw-bold {
-    font-family: Montserrat-Bold;
+  font-family: Montserrat-Bold;
 }

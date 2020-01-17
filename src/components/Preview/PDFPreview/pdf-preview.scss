@@ -1,0 +1,34 @@
+.PDFPreview {
+  .preview {
+    margin-bottom: 100px;
+  }
+
+  .qr-border {
+    width: 140px;
+    position: absolute;
+    margin-top: 95px;
+    margin-left: 304px;
+  }
+
+  .qr-image {
+    margin-left: 314px;
+    margin-top: 105px;
+  }
+
+  .merchant {
+    .merchant-logo {
+      margin-left: 13px;
+      max-width: 138px;
+    }
+  }
+
+  .merchant-name {
+    height: 236px;
+    position: absolute;
+    color: white;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+    margin-left: 480px;
+    font-size: 12px;
+  }
+}
