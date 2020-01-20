@@ -21,9 +21,9 @@ function App() {
       {/**Navbar */}
       <nav className="navbar navbar-light">
         <div className="container">
-          <div className="navbar-brand">
+          <a className="navbar-brand" href="/">
             <img src={logo} alt="logo" />
-          </div>
+          </a>
         </div>
       </nav>
       {/**Body */}
@@ -107,7 +107,7 @@ function App() {
               <div className="col-md-3 col-lg-2">
                 <div className="card-option disabled">
                   <a
-                    href="https://t.me/alifmarketing"
+                    href="https://t.me/alifmarketbot"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="marketing-link"

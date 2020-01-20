@@ -123,7 +123,7 @@ function Form({ tableId }) {
         <div className="col-lg-6">
           {tableId === 2 || tableId === 3 || tableId === 4 ? (
             <div className="pdf-preview-size">
-              <div className="preview-size-text">Андозаи интихоб кунед</div>
+              <div className="preview-size-text">Андозаро интихоб кунед</div>
               <div className="preview-size-block">
                 <div
                   className={
@@ -222,15 +222,19 @@ function Form({ tableId }) {
                       />
                       <button className="btn">Ворид кардан</button>
                     </label>
-                    <input
-                      type="text"
-                      className="form-control custom-input "
-                      onChange={fileInputChange}
-                      value={fileInput}
-                    />
-                    <span className="trash" onClick={clearInput}>
-                      <Trash />
-                    </span>
+                    {fileInput && fileInput.length ? (
+                      <>
+                        <input
+                          type="text"
+                          className="form-control custom-input "
+                          onChange={fileInputChange}
+                          value={fileInput}
+                        />
+                        <span className="trash" onClick={clearInput}>
+                          <Trash />
+                        </span>
+                      </>
+                    ) : null}
                   </div>
                 ) : null}
               </>
@@ -243,8 +247,15 @@ function Form({ tableId }) {
                 <div className="error-text">
                   Ба ин намуди табличка логотип дохил карда намешавад. Барои
                   дохил кардан ба&nbsp;
-                  <span className="bot-name">@alifmarketingbot</span> муроҷиат
-                  кунед.
+                  <a
+                    className="bot-name"
+                    href="https://t.me/alifmarketbot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    @alifmarketing
+                  </a>{" "}
+                  муроҷиат кунед.
                 </div>
               </div>
             ) : null}
@@ -267,6 +278,7 @@ function Form({ tableId }) {
             qrImage &&
             merchantName ? (
               <PDFDownloadLink
+                renderMode={"svg"}
                 document={
                   <PDFDocument
                     image={preview}

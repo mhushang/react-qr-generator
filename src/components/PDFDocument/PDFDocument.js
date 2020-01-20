@@ -32,14 +32,14 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 306,
     height: 306,
-    marginLeft: 730,
+    marginLeft: 732,
     marginTop: 236
   },
   qrBorder_1: {
     position: "absolute",
     width: 348,
     height: 348,
-    marginLeft: 710,
+    marginLeft: 712,
     marginTop: 215
   },
   qrBorder_2: {
@@ -165,8 +165,6 @@ const styles = StyleSheet.create({
 });
 
 function PDFDocument({ image, tableId, qr, merchantName }) {
-  // useEffect(() => {
-  // }, [image, qr, merchantName]);
   return (
     <Document style={styles.background}>
       {tableId === 1 ? (

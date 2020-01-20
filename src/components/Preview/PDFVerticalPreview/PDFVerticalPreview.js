@@ -21,7 +21,13 @@ function PDFVerticalPreview({ tableId, qr, merchantName }) {
             <div>
               <img src={qrBorder} alt="qr-border" className="qr-border" />
               <div className="qr-border qr-1">
-                <QRCode value={qr} size={104} />
+                <QRCode
+                  value={qr}
+                  size={104}
+                  level={"H"}
+                  includeMargin={false}
+                  renderAs={"svg"}
+                />
               </div>
               <div className="merchant-name">{merchantName}</div>
               <img
@@ -39,7 +45,13 @@ function PDFVerticalPreview({ tableId, qr, merchantName }) {
                 className="qr-border qr-card"
               />
               <div className="qr-border qr-2">
-                <QRCode value={qr} size={104} />
+                <QRCode
+                  value={qr}
+                  size={110}
+                  level={"H"}
+                  includeMargin={false}
+                  renderAs={"svg"}
+                />
               </div>
               <div className="merchant-name">{merchantName}</div>
 
@@ -58,7 +70,13 @@ function PDFVerticalPreview({ tableId, qr, merchantName }) {
                 className="qr-border instruction"
               />
               <div className="qr-border qr-3">
-                <QRCode value={qr} size={86} />
+                <QRCode
+                  value={qr}
+                  size={86}
+                  level={"H"}
+                  includeMargin={false}
+                  renderAs={"svg"}
+                />
               </div>
               <div className="merchant-name-3">{merchantName}</div>
               <img
@@ -76,7 +94,13 @@ function PDFVerticalPreview({ tableId, qr, merchantName }) {
                 className="alif-logo instruction"
               />
               <div>
-                <QRCode value={qr} className="olucha-qr" />
+                <QRCode
+                  value={qr}
+                  level={"H"}
+                  includeMargin={false}
+                  renderAs={"svg"}
+                  className="olucha-qr"
+                />
               </div>
               <div className="olucha-merchant-name">{merchantName}</div>
               <img src={olucha} alt="olucha" className="olucha" />

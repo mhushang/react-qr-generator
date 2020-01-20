@@ -13,9 +13,7 @@ function Preview({ image, tableId, qr, merchantName, gotDataUrlParent }) {
       <div className="row">
         <div className="col">
           <div className="preview-wrapper">
-            <div className="preview-title">
-              Намуди пешакӣ — qr_alifmobi_evar_198x99.pdf
-            </div>
+            <div className="preview-title">Намуди пешакӣ</div>
 
             {tableId === 1 ? (
               <PDFPreview
