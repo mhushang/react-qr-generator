@@ -48,13 +48,8 @@ function PDFPreview({ image, qr, merchantName, gotDataUrl }) {
 
     // call svgString2Image function
     svgString2Image(svg, 800, 600, "png", function(pngData) {
-      console.log(pngData);
       gotDataUrl(pngData);
     });
-
-    // gotDataUrl("data:image/svg+xml;base64," + dataURL);
-    // console.log(svg);
-    // console.log("dataURL", dataURL);
   }, [qr]);
 
   return (
@@ -79,7 +74,13 @@ function PDFPreview({ image, qr, merchantName, gotDataUrl }) {
 
             <img src={qrBorder} alt="qr-border" className="qr-border" />
           </div>
-          <div className="merchant-name">{merchantName}</div>
+          <div className="merchant-name">
+            <svg xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="147" fill="white">
+                {merchantName}
+              </text>
+            </svg>
+          </div>
           <Table />
         </div>
       </div>

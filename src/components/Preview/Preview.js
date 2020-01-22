@@ -28,6 +28,7 @@ function Preview({ image, tableId, qr, merchantName, gotDataUrlParent }) {
                 tableId={tableId}
                 qr={qr}
                 merchantName={merchantName}
+                gotDataUrl={e => gotDataUrl(e)}
               />
             )}
           </div>

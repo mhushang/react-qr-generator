@@ -14,16 +14,8 @@ import Preview from "../Preview/Preview";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 
 function Form({ tableId }) {
-  useEffect(() => {
-    if (isOnBlured === true) {
-      setIsOnBlured(false);
-    }
-  }, [tableId]);
-
   const [merchantName, setMerchantName] = useState("");
-  const [qrLink, setQrLink] = useState(
-    "https://api.alif.mobi/api/mobi/v0/external/qr/?data=test"
-  );
+  const [qrLink, setQrLink] = useState("");
 
   const [isOnBlured, setIsOnBlured] = useState(true);
   let [isValidName, setIsValidName] = useState(true);
@@ -36,6 +28,12 @@ function Form({ tableId }) {
   let [checkbox, setCheckbox] = useState(false);
   const [activeClass, setActiveClass] = useState(1);
   const [qrImage, setQrImage] = useState("");
+
+  useEffect(() => {
+    if (isOnBlured === true) {
+      setIsOnBlured(false);
+    }
+  }, [tableId]);
 
   function urlValidator(url) {
     let expression = /^(https:\/\/api.alif.mobi\/api\/mobi\/v0\/external\/qr\/)\S*/;
@@ -81,6 +79,7 @@ function Form({ tableId }) {
 
   function changeCheckboxHandler() {
     setCheckbox((checkbox = !checkbox));
+    // setCheckbox(true);
   }
 
   function fileInputChange(event) {
@@ -113,6 +112,7 @@ function Form({ tableId }) {
       setIsValidName(true);
     } else {
       setIsValidName(false);
+      setIsValidURL(false);
     }
     formValidator();
   }
@@ -166,7 +166,7 @@ function Form({ tableId }) {
                 className={"form-control border-0"}
                 maxLength={20}
                 validate={isValidName}
-                errorText={"Текст ошибки"}
+                errorText={"Ном наметавонад аз 3 харф кам шавад"}
                 type={"text"}
                 onInputBlur={event => handleBlur(event.target.value)}
                 spanText={
@@ -201,6 +201,7 @@ function Form({ tableId }) {
                   <Checkbox
                     className={"custom-control-input"}
                     id={"autoSizingCheck"}
+                    checked={checkbox}
                     change={changeCheckboxHandler}
                   />
                   <label
@@ -261,13 +262,9 @@ function Form({ tableId }) {
             ) : null}
             {!isFormValid || !isOnBlured ? (
               <Button
-                type={
-                  isOnBlured
-                    ? "button button-success"
-                    : "button button-success margin-top"
-                }
+                type={"button button-success margin-top"}
                 label={"Генерировать QR"}
-                click={() => handleBlur()}
+                click={handleBlur}
               />
             ) : null}
 

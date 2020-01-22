@@ -32,15 +32,30 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 306,
     height: 306,
-    marginLeft: 732,
+    marginLeft: 733,
     marginTop: 236
   },
   qrBorder_1: {
     position: "absolute",
     width: 348,
     height: 348,
-    marginLeft: 712,
+    marginLeft: 713,
     marginTop: 215
+  },
+
+  qr_11: {
+    position: "absolute",
+    width: 306,
+    height: 306,
+    marginLeft: 733,
+    marginTop: 206
+  },
+  qrBorder_11: {
+    position: "absolute",
+    width: 348,
+    height: 348,
+    marginLeft: 713,
+    marginTop: 185
   },
   qrBorder_2: {
     position: "absolute",
@@ -51,10 +66,10 @@ const styles = StyleSheet.create({
   },
   qrBorder_3: {
     position: "absolute",
-    width: 160,
-    height: 160,
-    marginLeft: 168,
-    marginTop: 272
+    width: 170,
+    height: 170,
+    marginLeft: 162,
+    marginTop: 268
   },
   qrBorder_4: {
     position: "absolute",
@@ -63,12 +78,20 @@ const styles = StyleSheet.create({
     marginLeft: 138,
     marginTop: 348
   },
-  logo: {
+  logoWrapper: {
+    textAlign: "center",
+    display: "flex",
+    alignItems: "center",
     position: "absolute",
     width: 338,
-    height: 66,
     marginLeft: 718,
     marginTop: 130
+  },
+  logo: {
+    position: "absolute",
+    maxWidth: 338,
+    height: 66,
+    maxHeight: 66
   },
   verticalQr: {
     position: "absolute",
@@ -86,10 +109,10 @@ const styles = StyleSheet.create({
   },
   verticalQrInstruction: {
     position: "absolute",
-    width: 140,
-    height: 140,
-    marginLeft: 177,
-    marginTop: 283
+    width: 144,
+    height: 144,
+    marginLeft: 175.3,
+    marginTop: 282
   },
   verticalTableWithCard: {
     position: "absolute",
@@ -175,11 +198,22 @@ function PDFDocument({ image, tableId, qr, merchantName }) {
         >
           <View>
             <Image source={background} style={styles.background}></Image>
-            <Image source={qr} style={styles.qr} />
             {image.length ? (
-              <Image source={image} style={styles.logo}></Image>
+              <View style={styles.logoWrapper}>
+                <Image source={image} style={styles.logo}></Image>
+              </View>
             ) : null}
-            <Image source={qrBorder} style={styles.qrBorder_1}></Image>
+            {image && image.length ? (
+              <>
+                <Image source={qr} style={styles.qr} />
+                <Image source={qrBorder} style={styles.qrBorder_1}></Image>
+              </>
+            ) : (
+              <>
+                <Image source={qr} style={styles.qr_11} />
+                <Image source={qrBorder} style={styles.qrBorder_11}></Image>
+              </>
+            )}
             <Text style={styles.merchantName_1}>{merchantName}</Text>
           </View>
         </Page>

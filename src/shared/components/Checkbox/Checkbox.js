@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./checkbox.scss";
 
 function Checkbox(props) {
-  const { className, change, id } = props;
+  const { className, change, id, checked } = props;
 
   let [value, setValue] = useState("");
 
@@ -19,6 +19,7 @@ function Checkbox(props) {
       onChange={e => onChange(e)}
       className={className}
       id={id}
+      checked={checked}
     />
   );
 }

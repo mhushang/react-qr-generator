@@ -9,7 +9,6 @@
   .qr-border {
     width: 120px;
     margin-top: 194px;
-    margin-left: 77px;
     position: absolute;
     z-index: 3;
   }
@@ -17,7 +16,7 @@
   .qr-border.qr-card {
     width: 130px;
     margin-top: 190px;
-    margin-left: 72px;
+    // margin-left: 72px;
     position: absolute;
     z-index: 3;
   }
@@ -25,48 +24,49 @@
   .qr-1 {
     z-index: 2;
     margin-top: 202px;
-    margin-left: 195px;
+    // margin-left: 195px;
   }
 
   .qr-2 {
     z-index: 2;
     margin-top: 200px;
-    margin-left: 194px;
+    // margin-left: 194px;
   }
 
   .qr-border.instruction {
     z-index: 3;
     margin-top: 147px;
-    margin-left: 87px;
+    // margin-left: 87px;
     width: 100px;
   }
   .qr-3 {
     z-index: 2;
     margin-top: 154px;
-    margin-left: 195px;
+    // margin-left: 195px;
   }
 
   .merchant-name {
+    display: flex;
+    align-items: center;
     height: 366px;
     position: absolute;
     color: white;
-    writing-mode: vertical-lr;
-    transform: rotate(-180deg);
-    text-align: start;
-
-    margin-left: 368px;
+    transform: rotate(-90deg);
+    margin-top: 32px;
+    margin-left: 54px;
     font-size: 12px;
   }
 
   .merchant-name-3 {
+    display: flex;
+    align-items: center;
     height: 366px;
     position: absolute;
     color: white;
-    writing-mode: vertical-lr;
-    transform: rotate(-180deg);
+    transform: rotate(-90deg);
     text-align: start;
-    // margin-top: 234px;
-    margin-left: 368px;
+    margin-top: 32px;
+    margin-left: 54px;
     font-size: 12px;
   }
 
@@ -81,24 +81,27 @@
     width: 144px !important;
     height: 144px !important;
     margin-top: 173px;
-    margin-left: -72px;
+    margin-left: 64px;
   }
 
   .alif-logo {
     position: absolute;
     height: 40px;
     z-index: 4;
-    margin-left: -22px;
+    // margin-left: -22px;
     margin-top: 222px;
   }
 
   .olucha-merchant-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     color: white;
     width: 273px;
     font-size: 10px;
     text-align: center !important;
-    margin-left: 118px;
+    // margin-left: 118px;
     margin-top: 370px;
   }
 }
