@@ -1,6 +1,6 @@
 import React from "react";
 import "./pdf-document.scss";
-import font from "./../../shared/assets/fonts/Montserrat-Medium.ttf";
+import font from "./../../shared/assets/fonts/Arial.ttf";
 
 import {
   Page,
@@ -23,7 +23,7 @@ import verticalTableWIthInstruction from "./../../assets/images/VerticalTableWIt
 import verticalTableWithCard from "./../../assets/images/VerticalTableWithCard.png";
 
 Font.register({
-  family: "Montserrat",
+  family: "Arial",
   src: font
 });
 
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   merchantName_1: {
     position: "absolute",
     color: "white",
-    fontFamily: "Montserrat",
+    fontFamily: "Arial",
     transform: "rotate(270deg)",
     fontSize: 9,
     height: 400,
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   merchantName_2: {
     position: "absolute",
     color: "white",
-    fontFamily: "Montserrat",
+    fontFamily: "Arial",
     transform: "rotate(270deg)",
     fontSize: 9,
     height: 300,
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
   merchantName_3: {
     position: "absolute",
     color: "white",
-    fontFamily: "Montserrat",
+    fontFamily: "Arial",
     transform: "rotate(270deg)",
     fontSize: 9,
     height: 300,
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   merchantName_4: {
     position: "absolute",
     color: "white",
-    fontFamily: "Montserrat",
+    fontFamily: "Arial",
     transform: "rotate(270deg)",
     fontSize: 9,
     height: 300,
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
   merchantName_5: {
     position: "absolute",
     color: "white",
-    fontFamily: "Montserrat",
+    fontFamily: "Arial",
     fontSize: 14,
     width: "100%",
     // marginLeft: 210,
