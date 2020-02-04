@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./pdf-document.scss";
 import font from "./../../shared/assets/fonts/Arial.ttf";
 
@@ -30,96 +30,102 @@ Font.register({
 const styles = StyleSheet.create({
   qr: {
     position: "absolute",
-    width: 306,
-    height: 306,
-    marginLeft: 733,
-    marginTop: 236
+    width: 164,
+    height: 164,
+    marginLeft: 313.5,
+    marginTop: 107,
+    borderRadius: 20
   },
   qrBorder_1: {
     position: "absolute",
-    width: 348,
-    height: 348,
-    marginLeft: 713,
-    marginTop: 215
+    width: 150,
+    height: 150,
+    marginLeft: 320,
+    marginTop: 112
   },
 
   qr_11: {
     position: "absolute",
-    width: 306,
-    height: 306,
-    marginLeft: 733,
-    marginTop: 206
+    width: 164,
+    height: 164,
+    marginLeft: 313.5,
+    marginTop: 92,
+    borderRadius: 20
   },
   qrBorder_11: {
     position: "absolute",
-    width: 348,
-    height: 348,
-    marginLeft: 713,
-    marginTop: 185
+    width: 150,
+    height: 150,
+    marginLeft: 320,
+    marginTop: 98
   },
   qrBorder_2: {
     position: "absolute",
-    width: 230,
-    height: 240,
-    marginLeft: 132,
-    marginTop: 335
+    width: 140,
+    height: 140,
+    marginLeft: 85,
+    marginTop: 218
   },
   qrBorder_3: {
     position: "absolute",
-    width: 170,
-    height: 170,
-    marginLeft: 162,
-    marginTop: 268
+    width: 108,
+    height: 108,
+    marginLeft: 100,
+    marginTop: 165
   },
   qrBorder_4: {
     position: "absolute",
-    width: 220,
-    height: 220,
-    marginLeft: 138,
-    marginTop: 348
+    width: 140,
+    height: 140,
+    marginLeft: 84,
+    marginTop: 212
   },
   logoWrapper: {
     textAlign: "center",
     display: "flex",
     alignItems: "center",
     position: "absolute",
-    width: 338,
-    marginLeft: 718,
-    marginTop: 130
+    width: 158,
+    marginLeft: 318,
+    marginTop: 72
   },
   logo: {
     position: "absolute",
-    maxWidth: 338,
-    height: 66,
-    maxHeight: 66
+    maxWidth: 158,
+    height: 28,
+    maxHeight: 28
   },
   verticalQr: {
     position: "absolute",
-    width: 204,
-    height: 206,
-    marginLeft: 145,
-    marginTop: 352
+    width: 154,
+    height: 154,
+    marginLeft: 78.5,
+    borderRadius: 20,
+    marginTop: 212
   },
   olucha_qr: {
     position: "absolute",
-    width: 260,
-    height: 260,
-    marginLeft: 118,
-    marginTop: 310
+    width: 134,
+    height: 134,
+    marginLeft: 38,
+    borderRadius: 20,
+    marginTop: 114
   },
   verticalQrInstruction: {
     position: "absolute",
-    width: 144,
-    height: 144,
-    marginLeft: 175.3,
-    marginTop: 282
+    width: 118,
+    height: 118,
+    marginLeft: 95.5,
+    borderRadius: 20,
+    marginTop: 160.5
   },
   verticalTableWithCard: {
     position: "absolute",
-    width: 190,
-    height: 190,
-    marginLeft: 151,
-    marginTop: 363
+    width: 155,
+    height: 155,
+    marginLeft: 78,
+    borderRadius: 20,
+    marginTop: 206
   },
 
   merchantName_1: {
@@ -128,9 +134,9 @@ const styles = StyleSheet.create({
     fontFamily: "Arial",
     transform: "rotate(270deg)",
     fontSize: 9,
-    height: 400,
-    marginLeft: 1362,
-    marginTop: 360,
+    // height: 200,
+    marginLeft: 510,
+    marginTop: 250,
     textAlign: "left"
   },
   merchantName_2: {
@@ -139,9 +145,9 @@ const styles = StyleSheet.create({
     fontFamily: "Arial",
     transform: "rotate(270deg)",
     fontSize: 9,
-    height: 300,
-    marginLeft: 610,
-    marginTop: 503,
+    height: 200,
+    marginLeft: 394,
+    marginTop: 314,
     textAlign: "left"
   },
   merchantName_3: {
@@ -150,9 +156,9 @@ const styles = StyleSheet.create({
     fontFamily: "Arial",
     transform: "rotate(270deg)",
     fontSize: 9,
-    height: 300,
-    marginLeft: 610,
-    marginTop: 503,
+    height: 200,
+    marginLeft: 396,
+    marginTop: 302,
     textAlign: "left"
   },
   merchantName_4: {
@@ -161,28 +167,28 @@ const styles = StyleSheet.create({
     fontFamily: "Arial",
     transform: "rotate(270deg)",
     fontSize: 9,
-    height: 300,
-    marginLeft: 610,
-    marginTop: 503,
+    height: 200,
+    marginLeft: 396,
+    marginTop: 302,
     textAlign: "left"
   },
   merchantName_5: {
     position: "absolute",
     color: "white",
     fontFamily: "Arial",
-    fontSize: 14,
+    fontSize: 10,
     width: "100%",
     // marginLeft: 210,
-    marginTop: 664,
+    marginTop: 280,
     textAlign: "center"
   },
 
   alifLogo: {
     position: "absolute",
-    width: 60,
+    width: 25,
     textAlign: "center",
-    marginTop: 410,
-    marginLeft: 222,
+    marginTop: 164,
+    marginLeft: 92,
     zIndex: "4"
   }
 });
@@ -194,7 +200,7 @@ function PDFDocument({ image, tableId, qr, merchantName }) {
         <Page
           style={styles.preview}
           orientation={"landscape"}
-          size={{ width: 599.74, height: 1200 }}
+          size={{ width: 292.25, height: 531.5 }}
         >
           <View>
             <Image source={background} style={styles.background}></Image>
@@ -219,7 +225,7 @@ function PDFDocument({ image, tableId, qr, merchantName }) {
         </Page>
       ) : null}
       {tableId === 2 ? (
-        <Page style={styles.preview} size={{ width: 494.8688, height: 700 }}>
+        <Page style={styles.preview} size={{ width: 310, height: 436.75 }}>
           <View>
             <Image source={verticalTable}></Image>
             <Image source={qr} style={styles.verticalQr} />
@@ -229,7 +235,7 @@ function PDFDocument({ image, tableId, qr, merchantName }) {
         </Page>
       ) : null}
       {tableId === 3 ? (
-        <Page style={styles.preview} size={{ width: 494.8688, height: 700 }}>
+        <Page style={styles.preview} size={{ width: 309.9525, height: 436.75 }}>
           <View>
             <Image source={verticalTableWIthInstruction}></Image>
             <Image source={qr} style={styles.verticalQrInstruction} />
@@ -239,7 +245,7 @@ function PDFDocument({ image, tableId, qr, merchantName }) {
         </Page>
       ) : null}
       {tableId === 4 ? (
-        <Page style={styles.preview} size={{ width: 494.8688, height: 700 }}>
+        <Page style={styles.preview} size={{ width: 309.9525, height: 436.75 }}>
           <View>
             <Image source={verticalTableWithCard}></Image>
             <Image source={qr} style={styles.verticalTableWithCard} />
@@ -249,10 +255,7 @@ function PDFDocument({ image, tableId, qr, merchantName }) {
         </Page>
       ) : null}
       {tableId === 5 ? (
-        <Page
-          style={styles.preview}
-          size={{ width: 494.8688, height: 847.439 }}
-        >
+        <Page style={styles.preview} size={{ width: 206.75, height: 354.25 }}>
           <View>
             <Image source={olucha}></Image>
             <Image source={qr} style={styles.olucha_qr} />
