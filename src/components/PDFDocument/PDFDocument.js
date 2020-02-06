@@ -33,8 +33,7 @@ const styles = StyleSheet.create({
     width: 164,
     height: 164,
     marginLeft: 313.5,
-    marginTop: 107,
-    borderRadius: 20
+    marginTop: 107
   },
   qrBorder_1: {
     position: "absolute",
@@ -49,8 +48,7 @@ const styles = StyleSheet.create({
     width: 164,
     height: 164,
     marginLeft: 313.5,
-    marginTop: 92,
-    borderRadius: 20
+    marginTop: 92
   },
   qrBorder_11: {
     position: "absolute",
@@ -100,7 +98,6 @@ const styles = StyleSheet.create({
     width: 154,
     height: 154,
     marginLeft: 78.5,
-    borderRadius: 20,
     marginTop: 212
   },
   olucha_qr: {
@@ -108,7 +105,6 @@ const styles = StyleSheet.create({
     width: 134,
     height: 134,
     marginLeft: 38,
-    borderRadius: 20,
     marginTop: 114
   },
   verticalQrInstruction: {
@@ -116,7 +112,6 @@ const styles = StyleSheet.create({
     width: 118,
     height: 118,
     marginLeft: 95.5,
-    borderRadius: 20,
     marginTop: 160.5
   },
   verticalTableWithCard: {
@@ -124,7 +119,6 @@ const styles = StyleSheet.create({
     width: 155,
     height: 155,
     marginLeft: 78,
-    borderRadius: 20,
     marginTop: 206
   },
 

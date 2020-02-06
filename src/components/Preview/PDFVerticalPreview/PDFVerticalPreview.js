@@ -13,31 +13,31 @@ import QRCode from "qrcode.react";
 
 function PDFVerticalPreview({ tableId, qr, merchantName, gotDataUrl }) {
   useEffect(() => {
-    function toDataURL(url, callback) {
-      var httpRequest = new XMLHttpRequest();
-      httpRequest.onload = function() {
-        var fileReader = new FileReader();
-        fileReader.onloadend = function() {
-          callback(fileReader.result);
-        };
-        fileReader.readAsDataURL(httpRequest.response);
+    function getBase64Image(imgUrl, callback) {
+      var img = new Image();
+
+      // onload fires when the image is fully loadded, and has width and height
+
+      img.onload = function() {
+        var canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var dataURL = canvas.toDataURL("image/jpeg"),
+          dataURL = dataURL.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
+
+        callback(dataURL); // the base64 string
       };
-      httpRequest.open("GET", url);
-      httpRequest.responseType = "blob";
-      httpRequest.send();
+
+      // set attributes and src
+      img.setAttribute("crossOrigin", "anonymous"); //
+      img.src = imgUrl;
     }
 
-    toDataURL(qr, function(dataUrl) {
-      // document.write("Result in string:", dataUrl);
-      if (qr) {
-        gotDataUrl(dataUrl);
-        console.log(dataUrl);
-      }
+    getBase64Image(qr, base64image => {
+      gotDataUrl("data:image/jpeg;base64," + base64image);
     });
-  }, [qr]);
-
-  useEffect(() => {
-    gotDataUrl(qr);
   }, [qr, tableId]);
 
   return (
