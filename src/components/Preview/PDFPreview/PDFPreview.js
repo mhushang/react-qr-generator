@@ -10,7 +10,27 @@ import QRCode from "qrcode.react";
 
 function PDFPreview({ image, qr, merchantName, gotDataUrl }) {
   useEffect(() => {
-    gotDataUrl(qr);
+    function toDataURL(url, callback) {
+      var httpRequest = new XMLHttpRequest();
+      httpRequest.onload = function() {
+        var fileReader = new FileReader();
+        fileReader.onloadend = function() {
+          callback(fileReader.result);
+        };
+        fileReader.readAsDataURL(httpRequest.response);
+      };
+      httpRequest.open("GET", url);
+      httpRequest.responseType = "blob";
+      httpRequest.send();
+    }
+
+    toDataURL(qr, function(dataUrl) {
+      // document.write("Result in string:", dataUrl);
+      if (qr) {
+        gotDataUrl(dataUrl);
+        console.log(dataUrl);
+      }
+    });
   }, [image, qr]);
 
   return (

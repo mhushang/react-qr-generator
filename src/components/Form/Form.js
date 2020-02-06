@@ -260,7 +260,7 @@ function Form({ tableId }) {
                 </div>
               </div>
             ) : null}
-            {!isFormValid || !isOnBlured ? (
+            {!isFormValid || !isOnBlured || !qrImage ? (
               <Button
                 type={"button button-success margin-top"}
                 label={"Генерировать QR"}

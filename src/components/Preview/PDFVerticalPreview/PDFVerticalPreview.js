@@ -12,7 +12,29 @@ import qrBorder from "../../../assets/images/VerticalQrBorder.png";
 import QRCode from "qrcode.react";
 
 function PDFVerticalPreview({ tableId, qr, merchantName, gotDataUrl }) {
-  useEffect(() => {}, [qr]);
+  useEffect(() => {
+    function toDataURL(url, callback) {
+      var httpRequest = new XMLHttpRequest();
+      httpRequest.onload = function() {
+        var fileReader = new FileReader();
+        fileReader.onloadend = function() {
+          callback(fileReader.result);
+        };
+        fileReader.readAsDataURL(httpRequest.response);
+      };
+      httpRequest.open("GET", url);
+      httpRequest.responseType = "blob";
+      httpRequest.send();
+    }
+
+    toDataURL(qr, function(dataUrl) {
+      // document.write("Result in string:", dataUrl);
+      if (qr) {
+        gotDataUrl(dataUrl);
+        console.log(dataUrl);
+      }
+    });
+  }, [qr]);
 
   useEffect(() => {
     gotDataUrl(qr);
