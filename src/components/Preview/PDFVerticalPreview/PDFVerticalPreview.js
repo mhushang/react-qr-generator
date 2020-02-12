@@ -6,12 +6,13 @@ import olucha from "../../../assets/images/Olucha.png";
 import alifLogo from "../../../assets/images/alifLogo.png";
 
 import VerticalTableWithCard from "../../../assets/images/VerticalTableWithCard.png";
-import VerticalTableWIthInstruction from "../../../assets/images/VerticalTableWIthInstruction.png";
+import TableCounter from "../../../assets/images/TableCounter.png";
+// import VerticalTableWIthInstruction from "../../../assets/images/VerticalTableWIthInstruction.png";
 
 import qrBorder from "../../../assets/images/VerticalQrBorder.png";
 import QRCode from "qrcode.react";
 
-function PDFVerticalPreview({ tableId, qr, merchantName, gotDataUrl }) {
+function PDFVerticalPreview({ tableId, qr, image, merchantName, gotDataUrl }) {
   useEffect(() => {
     function getBase64Image(imgUrl, callback) {
       var img = new Image();
@@ -109,7 +110,45 @@ function PDFVerticalPreview({ tableId, qr, merchantName, gotDataUrl }) {
             </div>
           ) : null}
           {tableId === 3 ? (
+            // <div className="d-flex justify-content-center">
+            //   <img
+            //     src={qrBorder}
+            //     alt="qr-border"
+            //     className="qr-border instruction"
+            //   />
+            //   <div className="qr-border qr-3 ">
+            //     {qr && qr.length ? (
+            //       <img
+            //         src={qr}
+            //         alt="qr"
+            //         style={{
+            //           width: "108px",
+            //           marginLeft: "0.4px",
+            //           borderRadius: "12px"
+            //         }}
+            //       />
+            //     ) : null}
+            //   </div>
+            //   <div className="merchant-name-3 merchantName">
+            //     <svg xmlns="http://www.w3.org/2000/svg">
+            //       <text x="0" y="147" fill="white">
+            //         {merchantName}
+            //       </text>
+            //     </svg>
+            //   </div>
+            //   <img
+            //     src={VerticalTableWIthInstruction}
+            //     alt="table"
+            //     className="vertical-preview-image"
+            //   />
+            // </div>
+
             <div className="d-flex justify-content-center">
+              {image && image.length > 1 ? (
+                <div className="merchant-logo">
+                  <img src={image} alt="logo" className="merchant-logo-img" />
+                </div>
+              ) : null}
               <img
                 src={qrBorder}
                 alt="qr-border"
@@ -121,8 +160,8 @@ function PDFVerticalPreview({ tableId, qr, merchantName, gotDataUrl }) {
                     src={qr}
                     alt="qr"
                     style={{
-                      width: "108px",
-                      marginLeft: "0.4px",
+                      width: "130px",
+                      marginLeft: "-5px",
                       borderRadius: "12px"
                     }}
                   />
@@ -136,7 +175,7 @@ function PDFVerticalPreview({ tableId, qr, merchantName, gotDataUrl }) {
                 </svg>
               </div>
               <img
-                src={VerticalTableWIthInstruction}
+                src={TableCounter}
                 alt="table"
                 className="vertical-preview-image"
               />

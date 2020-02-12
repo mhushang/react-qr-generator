@@ -15,11 +15,14 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 
 function Form({ tableId }) {
   const [merchantName, setMerchantName] = useState("");
-  const [qrLink, setQrLink] = useState("");
+  const [qrLink, setQrLink] = useState(
+    "https://api.alif.mobi/api/mobi/v0/external/qr/?data=5308"
+  );
 
   const [isOnBlured, setIsOnBlured] = useState(true);
   let [isValidName, setIsValidName] = useState(true);
   let [isValidURL, setIsValidURL] = useState(true);
+  const [isMerchantLogoValid, setIsMerchantLogoValid] = useState(true);
   const [isFormValid, setIsFormValid] = useState(false);
 
   let [preview, setPreview] = useState([]);
@@ -46,7 +49,16 @@ function Form({ tableId }) {
   }
 
   function formValidator() {
-    if (isValidName && isValidURL) {
+    if (preview.length) {
+      setIsMerchantLogoValid(true);
+    } else {
+      setIsMerchantLogoValid(false);
+    }
+
+    if (
+      (isValidName && isValidURL) ||
+      (tableId === 3 && isValidName && isValidURL && isMerchantLogoValid)
+    ) {
       setIsFormValid(true);
     } else {
       setIsFormValid(false);
@@ -89,6 +101,11 @@ function Form({ tableId }) {
 
       reader.onloadend = function() {
         setPreview(reader.result);
+        if (reader.result) {
+          setIsMerchantLogoValid(true);
+        } else {
+          setIsMerchantLogoValid(false);
+        }
       };
       if (file) {
         reader.readAsDataURL(file);
@@ -100,6 +117,7 @@ function Form({ tableId }) {
   function clearInput() {
     setFileInput("");
     setPreview([]);
+    setIsMerchantLogoValid(false);
   }
 
   function activePreview(index) {
@@ -108,13 +126,23 @@ function Form({ tableId }) {
 
   function handleBlur() {
     if (merchantName && merchantName.length > 2) {
-      setIsOnBlured(true);
       setIsValidName(true);
     } else {
       setIsValidName(false);
+    }
+
+    if (isValidURL) {
+      setIsValidURL(true);
+    } else {
       setIsValidURL(false);
     }
     formValidator();
+
+    if (isFormValid) {
+      setIsOnBlured(true);
+    } else {
+      setIsOnBlured(false);
+    }
   }
 
   return (
@@ -189,29 +217,31 @@ function Form({ tableId }) {
                 change={event => qrLinkHandler(event.target.value)}
               />
             </div>
-            {tableId === 1 ? (
+            {tableId === 1 || tableId === 3 ? (
               <>
-                <div
-                  className={
-                    checkbox
-                      ? "custom-control custom-checkbox mb-4"
-                      : "custom-control custom-checkbox"
-                  }
-                >
-                  <Checkbox
-                    className={"custom-control-input"}
-                    id={"autoSizingCheck"}
-                    checked={checkbox}
-                    change={changeCheckboxHandler}
-                  />
-                  <label
-                    className="custom-control-label"
-                    htmlFor="autoSizingCheck"
+                {tableId !== 3 ? (
+                  <div
+                    className={
+                      checkbox
+                        ? "custom-control custom-checkbox mb-4"
+                        : "custom-control custom-checkbox"
+                    }
                   >
-                    <span className="checkbox-text">Бо логотип</span>
-                  </label>
-                </div>
-                {checkbox ? (
+                    <Checkbox
+                      className={"custom-control-input"}
+                      id={"autoSizingCheck"}
+                      checked={checkbox}
+                      change={changeCheckboxHandler}
+                    />
+                    <label
+                      className="custom-control-label"
+                      htmlFor="autoSizingCheck"
+                    >
+                      <span className="checkbox-text">Бо логотип</span>
+                    </label>
+                  </div>
+                ) : null}
+                {checkbox || tableId === 3 ? (
                   <div className="form-group file-form">
                     <label className="btn-upload">
                       <input
@@ -221,7 +251,13 @@ function Form({ tableId }) {
                         onChange={fileInputChange}
                         accept="image/*"
                       />
-                      <button className="btn">Ворид кардан</button>
+                      <button
+                        className={
+                          isMerchantLogoValid ? "btn" : "btn btn-danger"
+                        }
+                      >
+                        Ворид кардан
+                      </button>
                     </label>
                     {fileInput && fileInput.length ? (
                       <>
@@ -240,7 +276,7 @@ function Form({ tableId }) {
                 ) : null}
               </>
             ) : null}
-            {tableId === 2 || tableId === 3 || tableId === 4 ? (
+            {tableId === 2 || tableId === 4 ? (
               <div className="error-block">
                 <div className="error-icon">
                   <ErrorIcon />
@@ -260,7 +296,10 @@ function Form({ tableId }) {
                 </div>
               </div>
             ) : null}
-            {!isFormValid || !isOnBlured || !qrImage ? (
+            {!isFormValid ||
+            !isOnBlured ||
+            !qrImage ||
+            (tableId === 3 && !isMerchantLogoValid) ? (
               <Button
                 type={"button button-success margin-top"}
                 label={"Генерировать QR"}
@@ -268,12 +307,19 @@ function Form({ tableId }) {
               />
             ) : null}
 
-            {isFormValid &&
-            isOnBlured &&
-            preview &&
-            tableId &&
-            qrImage &&
-            merchantName ? (
+            {(tableId !== 3 &&
+              isFormValid &&
+              isOnBlured &&
+              tableId &&
+              qrImage &&
+              merchantName) ||
+            (isFormValid &&
+              isOnBlured &&
+              tableId &&
+              qrImage &&
+              merchantName &&
+              tableId === 3 &&
+              isMerchantLogoValid) ? (
               <PDFDownloadLink
                 renderMode={"svg"}
                 document={

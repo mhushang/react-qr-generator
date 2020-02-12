@@ -10,7 +10,7 @@ import option5 from "./shared/assets/images/sada-5.svg";
 import Form from "./components/Form/Form";
 
 function App() {
-  const [activeTable, setActiveTable] = useState(1);
+  const [activeTable, setActiveTable] = useState(3);
 
   function toggleActiveTable(index) {
     setActiveTable(index);
@@ -65,7 +65,7 @@ function App() {
                   <div className="card-description">Табличка вертикалӣ</div>
                 </div>
               </div>
-              <div className="col-md-3 col-lg-2">
+              {/* <div className="col-md-3 col-lg-2">
                 <div
                   onClick={() => toggleActiveTable(3)}
                   className={
@@ -76,6 +76,19 @@ function App() {
                     <img className="" src={option3} alt="option" />
                   </div>
                   <div className="card-description">Табличка бо инструкция</div>
+                </div>
+              </div> */}
+              <div className="col-md-3 col-lg-2">
+                <div
+                  onClick={() => toggleActiveTable(3)}
+                  className={
+                    activeTable === 3 ? "card-option active" : "card-option"
+                  }
+                >
+                  <div className="img-block">
+                    <img className="" src={option3} alt="option" />
+                  </div>
+                  <div className="card-description">Табличка счетница</div>
                 </div>
               </div>
               <div className="col-md-3 col-lg-2">

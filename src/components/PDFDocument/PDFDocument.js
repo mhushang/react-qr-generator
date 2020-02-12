@@ -19,7 +19,8 @@ import olucha from "./../../assets/images/Olucha.png";
 
 import background from "./../../assets/images/Table.png";
 import verticalTable from "./../../assets/images/VerticalTable.png";
-import verticalTableWIthInstruction from "./../../assets/images/VerticalTableWIthInstruction.png";
+// import verticalTableWIthInstruction from "./../../assets/images/VerticalTableWIthInstruction.png";
+import TableCounter from "./../../assets/images/TableCounter.png";
 import verticalTableWithCard from "./../../assets/images/VerticalTableWithCard.png";
 
 Font.register({
@@ -66,10 +67,10 @@ const styles = StyleSheet.create({
   },
   qrBorder_3: {
     position: "absolute",
-    width: 108,
-    height: 108,
-    marginLeft: 100,
-    marginTop: 165
+    width: 100,
+    height: 100,
+    marginLeft: 58,
+    marginTop: 152
   },
   qrBorder_4: {
     position: "absolute",
@@ -109,10 +110,25 @@ const styles = StyleSheet.create({
   },
   verticalQrInstruction: {
     position: "absolute",
-    width: 118,
-    height: 118,
-    marginLeft: 95.5,
-    marginTop: 160.5
+    width: 110,
+    height: 110,
+    marginLeft: 53.5,
+    marginTop: 147.5
+  },
+  count_logo_wrapper: {
+    textAlign: "center",
+    display: "flex",
+    alignItems: "center",
+    position: "absolute",
+    width: 110,
+    marginLeft: 53.5,
+    marginTop: 118
+  },
+  count_logo_img: {
+    position: "absolute",
+    maxWidth: 110,
+    height: 25,
+    maxHeight: 25
   },
   verticalTableWithCard: {
     position: "absolute",
@@ -151,8 +167,8 @@ const styles = StyleSheet.create({
     transform: "rotate(270deg)",
     fontSize: 9,
     height: 200,
-    marginLeft: 396,
-    marginTop: 302,
+    marginLeft: 305,
+    marginTop: 190,
     textAlign: "left"
   },
   merchantName_4: {
@@ -229,9 +245,20 @@ function PDFDocument({ image, tableId, qr, merchantName }) {
         </Page>
       ) : null}
       {tableId === 3 ? (
-        <Page style={styles.preview} size={{ width: 309.9525, height: 436.75 }}>
+        // <Page style={styles.preview} size={{ width: 309.9525, height: 436.75 }}>
+        //   <View>
+        //     <Image source={verticalTableWIthInstruction}></Image>
+        //     <Image source={qr} style={styles.verticalQrInstruction} />
+        //     <Image source={qrBorder} style={styles.qrBorder_3}></Image>
+        //     <Text style={styles.merchantName_3}>{merchantName}</Text>
+        //   </View>
+        // </Page>
+        <Page style={styles.preview} size={{ width: 218.5, height: 310 }}>
           <View>
-            <Image source={verticalTableWIthInstruction}></Image>
+            <Image source={TableCounter}></Image>
+            <View style={styles.count_logo_wrapper}>
+              <Image source={image} style={styles.count_logo_img} />
+            </View>
             <Image source={qr} style={styles.verticalQrInstruction} />
             <Image source={qrBorder} style={styles.qrBorder_3}></Image>
             <Text style={styles.merchantName_3}>{merchantName}</Text>

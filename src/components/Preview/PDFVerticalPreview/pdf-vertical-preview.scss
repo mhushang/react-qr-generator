@@ -35,14 +35,27 @@
 
   .qr-border.instruction {
     z-index: 3;
-    margin-top: 147px;
+    margin-top: 200px;
+    margin-left: -1px;
     // margin-left: 87px;
-    width: 100px;
+    width: 120px;
   }
   .qr-3 {
     z-index: 2;
-    margin-top: 144px;
+    margin-top: 196px;
     // margin-left: 195px;
+  }
+
+  .merchant-logo {
+    position: absolute;
+    margin-top: 158px;
+    text-align: center;
+    margin-left: 0;
+    .merchant-logo-img {
+      max-width: 100px;
+      height: 100%;
+      max-height: 100px;
+    }
   }
 
   .merchant-name {
@@ -65,7 +78,7 @@
     color: white;
     transform: rotate(-90deg);
     text-align: start;
-    margin-top: 32px;
+    margin-top: 36px;
     margin-left: 54px;
     font-size: 12px;
   }
