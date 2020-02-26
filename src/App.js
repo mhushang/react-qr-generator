@@ -10,7 +10,7 @@ import option5 from "./shared/assets/images/sada-5.svg";
 import Form from "./components/Form/Form";
 
 function App() {
-  const [activeTable, setActiveTable] = useState(3);
+  const [activeTable, setActiveTable] = useState(1);
 
   function toggleActiveTable(index) {
     setActiveTable(index);
@@ -88,7 +88,7 @@ function App() {
                   <div className="img-block">
                     <img className="" src={option3} alt="option" />
                   </div>
-                  <div className="card-description">Табличка счетница</div>
+                  <div className="card-description">Табличка счетница А7</div>
                 </div>
               </div>
               <div className="col-md-3 col-lg-2">

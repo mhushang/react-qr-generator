@@ -142,11 +142,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     color: "white",
     fontFamily: "Arial",
-    transform: "rotate(270deg)",
+    transform: "rotate(-90deg)",
     fontSize: 9,
-    // height: 200,
-    marginLeft: 510,
-    marginTop: 250,
+    height: 200,
+    marginLeft: 612,
+    marginTop: 170,
     textAlign: "left"
   },
   merchantName_2: {

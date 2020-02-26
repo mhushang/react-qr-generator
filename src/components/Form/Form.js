@@ -15,9 +15,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 
 function Form({ tableId }) {
   const [merchantName, setMerchantName] = useState("");
-  const [qrLink, setQrLink] = useState(
-    "https://api.alif.mobi/api/mobi/v0/external/qr/?data=5308"
-  );
+  const [qrLink, setQrLink] = useState("");
 
   const [isOnBlured, setIsOnBlured] = useState(true);
   let [isValidName, setIsValidName] = useState(true);
@@ -131,7 +129,7 @@ function Form({ tableId }) {
       setIsValidName(false);
     }
 
-    if (isValidURL) {
+    if (isValidURL && qrLink.length) {
       setIsValidURL(true);
     } else {
       setIsValidURL(false);
@@ -149,7 +147,7 @@ function Form({ tableId }) {
     <div className="Form">
       <div className="row">
         <div className="col-lg-6">
-          {tableId === 2 || tableId === 3 || tableId === 4 ? (
+          {tableId === 2 || tableId === 4 ? (
             <div className="pdf-preview-size">
               <div className="preview-size-text">Андозаро интихоб кунед</div>
               <div className="preview-size-block">
