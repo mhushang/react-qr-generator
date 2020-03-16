@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./App.scss";
 
 import logo from "./shared/assets/images/logo.svg";
+import option_a6 from "./shared/assets/images/A6.svg";
+
 import option1 from "./shared/assets/images/sada-1.svg";
 import option2 from "./shared/assets/images/sada-2.svg";
 import option3 from "./shared/assets/images/sada-3.svg";
@@ -10,7 +12,7 @@ import option5 from "./shared/assets/images/sada-5.svg";
 import Form from "./components/Form/Form";
 
 function App() {
-  const [activeTable, setActiveTable] = useState(1);
+  const [activeTable, setActiveTable] = useState(4);
 
   function toggleActiveTable(index) {
     setActiveTable(index);
@@ -41,6 +43,19 @@ function App() {
               {/**Options */}
               <div className="col-md-3 col-lg-2">
                 <div
+                  onClick={() => toggleActiveTable(4)}
+                  className={
+                    activeTable === 4 ? "card-option active" : "card-option"
+                  }
+                >
+                  <div className="img-block">
+                    <img className="" src={option_a6} alt="option" />
+                  </div>
+                  <div className="card-description">Табличка A6</div>
+                </div>
+              </div>
+              <div className="col-md-3 col-lg-2">
+                <div
                   onClick={() => toggleActiveTable(1)}
                   className={
                     activeTable === 1 ? "card-option active" : "card-option"
@@ -62,22 +77,10 @@ function App() {
                   <div className="img-block">
                     <img className="" src={option2} alt="option" />
                   </div>
-                  <div className="card-description">Табличка вертикалӣ</div>
+                  <div className="card-description">Табличка A5</div>
                 </div>
               </div>
-              {/* <div className="col-md-3 col-lg-2">
-                <div
-                  onClick={() => toggleActiveTable(3)}
-                  className={
-                    activeTable === 3 ? "card-option active" : "card-option"
-                  }
-                >
-                  <div className="img-block">
-                    <img className="" src={option3} alt="option" />
-                  </div>
-                  <div className="card-description">Табличка бо инструкция</div>
-                </div>
-              </div> */}
+
               <div className="col-md-3 col-lg-2">
                 <div
                   onClick={() => toggleActiveTable(3)}
@@ -91,19 +94,7 @@ function App() {
                   <div className="card-description">Табличка счетница А7</div>
                 </div>
               </div>
-              <div className="col-md-3 col-lg-2">
-                <div
-                  onClick={() => toggleActiveTable(4)}
-                  className={
-                    activeTable === 4 ? "card-option active" : "card-option"
-                  }
-                >
-                  <div className="img-block">
-                    <img className="" src={option4} alt="option" />
-                  </div>
-                  <div className="card-description">Табличка бо QR ва корт</div>
-                </div>
-              </div>
+
               <div className="col-md-3 col-lg-2">
                 <div
                   onClick={() => toggleActiveTable(5)}

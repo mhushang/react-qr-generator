@@ -8,29 +8,42 @@
 
   .qr-border {
     width: 120px;
-    margin-top: 194px;
+    margin-top: 200px;
     position: absolute;
     z-index: 3;
   }
 
   .qr-border.qr-card {
-    width: 130px;
-    margin-top: 190px;
-    // margin-left: 72px;
+    width: 164px;
+    margin-top: 180px;
+    margin-left: -2px;
+    position: absolute;
+    z-index: 3;
+  }
+
+  .qr-border.qr-card_1 {
+    width: 164px;
+    margin-top: 149px;
+    margin-left: -2px;
     position: absolute;
     z-index: 3;
   }
 
   .qr-1 {
     z-index: 2;
-    margin-top: 189px;
+    margin-top: 195px;
     // margin-left: 195px;
   }
 
   .qr-2 {
     z-index: 2;
-    margin-top: 186px;
+    margin-top: 173px;
     // margin-left: 194px;
+  }
+
+  .qr-2-with-logo {
+    z-index: 2;
+    margin-top: 142px;
   }
 
   .qr-border.instruction {
@@ -58,6 +71,19 @@
     }
   }
 
+  .merchant-logo-a6 {
+    position: absolute;
+    margin-top: 324px;
+    text-align: center;
+    margin-left: 0;
+    // width: 220px;
+    .merchant-logo-img-a6 {
+      max-width: 220px;
+      height: 100%;
+      max-height: 46px;
+    }
+  }
+
   .merchant-name {
     display: flex;
     align-items: center;
@@ -65,7 +91,7 @@
     position: absolute;
     color: white;
     transform: rotate(-90deg);
-    margin-top: 32px;
+    margin-top: 36px;
     margin-left: 54px;
     font-size: 12px;
   }

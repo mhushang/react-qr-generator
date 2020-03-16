@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./pdf-document.scss";
 import font from "./../../shared/assets/fonts/Arial.ttf";
 
@@ -19,9 +19,10 @@ import olucha from "./../../assets/images/Olucha.png";
 
 import background from "./../../assets/images/Table.png";
 import verticalTable from "./../../assets/images/VerticalTable.png";
-// import verticalTableWIthInstruction from "./../../assets/images/VerticalTableWIthInstruction.png";
 import TableCounter from "./../../assets/images/TableCounter.png";
-import verticalTableWithCard from "./../../assets/images/VerticalTableWithCard.png";
+
+import Table_A6 from "./../../assets/images/A6.png";
+import Table_A6_1 from "./../../assets/images/A6_1.png";
 
 Font.register({
   family: "Arial",
@@ -58,13 +59,7 @@ const styles = StyleSheet.create({
     marginLeft: 320,
     marginTop: 98
   },
-  qrBorder_2: {
-    position: "absolute",
-    width: 140,
-    height: 140,
-    marginLeft: 85,
-    marginTop: 218
-  },
+
   qrBorder_3: {
     position: "absolute",
     width: 100,
@@ -74,10 +69,18 @@ const styles = StyleSheet.create({
   },
   qrBorder_4: {
     position: "absolute",
-    width: 140,
-    height: 140,
-    marginLeft: 84,
-    marginTop: 212
+    width: 200,
+    height: 200,
+    marginLeft: 55,
+    marginTop: 189
+  },
+
+  qrBorder_4_1: {
+    position: "absolute",
+    width: 200,
+    height: 200,
+    marginLeft: 55,
+    marginTop: 160
   },
   logoWrapper: {
     textAlign: "center",
@@ -94,13 +97,23 @@ const styles = StyleSheet.create({
     height: 28,
     maxHeight: 28
   },
-  verticalQr: {
+
+  logoWrapper_a6: {
+    textAlign: "center",
+    display: "flex",
+    alignItems: "center",
     position: "absolute",
-    width: 154,
-    height: 154,
-    marginLeft: 78.5,
-    marginTop: 212
+    width: 244,
+    marginLeft: 32.5,
+    marginTop: 370
   },
+  logo_a6: {
+    position: "absolute",
+    maxWidth: 244,
+    height: 46,
+    maxHeight: 46
+  },
+
   olucha_qr: {
     position: "absolute",
     width: 134,
@@ -115,6 +128,69 @@ const styles = StyleSheet.create({
     marginLeft: 53.5,
     marginTop: 147.5
   },
+
+  verticalQrInstruction_33: {
+    position: "absolute",
+    width: 110,
+    height: 110,
+    marginLeft: 53.5,
+    marginTop: 135
+  },
+  qrBorder_33: {
+    position: "absolute",
+    width: 100,
+    height: 100,
+    marginLeft: 58,
+    marginTop: 139
+  },
+
+  //2
+  logo_wrapper: {
+    textAlign: "center",
+    display: "flex",
+    alignItems: "center",
+    position: "absolute",
+    width: 200,
+    marginLeft: 122,
+    marginTop: 244
+  },
+  logo_img: {
+    position: "absolute",
+    maxWidth: 200,
+    height: 50,
+    maxHeight: 50
+  },
+
+  qrBorder_2: {
+    position: "absolute",
+    width: 190,
+    height: 190,
+    marginLeft: 126,
+    marginTop: 310
+  },
+  verticalQr: {
+    position: "absolute",
+    width: 212,
+    height: 212,
+    marginLeft: 115,
+    marginTop: 301
+  },
+
+  verticalQr_22: {
+    position: "absolute",
+    width: 212,
+    height: 212,
+    marginLeft: 115,
+    marginTop: 281
+  },
+  qrBorder_22: {
+    position: "absolute",
+    width: 190,
+    height: 190,
+    marginLeft: 126,
+    marginTop: 290
+  },
+
   count_logo_wrapper: {
     textAlign: "center",
     display: "flex",
@@ -130,12 +206,22 @@ const styles = StyleSheet.create({
     height: 25,
     maxHeight: 25
   },
-  verticalTableWithCard: {
+
+  table_a6_qr: {
     position: "absolute",
-    width: 155,
-    height: 155,
-    marginLeft: 78,
-    marginTop: 206
+    width: 218,
+    height: 218,
+    marginLeft: 46.5,
+    borderRadius: 12,
+    marginTop: 181
+  },
+
+  table_a6_qr_1: {
+    position: "absolute",
+    width: 218,
+    height: 218,
+    marginLeft: 46.5,
+    marginTop: 152
   },
 
   merchantName_1: {
@@ -156,8 +242,8 @@ const styles = StyleSheet.create({
     transform: "rotate(270deg)",
     fontSize: 9,
     height: 200,
-    marginLeft: 394,
-    marginTop: 314,
+    marginLeft: 524,
+    marginTop: 482,
     textAlign: "left"
   },
   merchantName_3: {
@@ -179,7 +265,7 @@ const styles = StyleSheet.create({
     fontSize: 9,
     height: 200,
     marginLeft: 396,
-    marginTop: 302,
+    marginTop: 310,
     textAlign: "left"
   },
   merchantName_5: {
@@ -203,7 +289,7 @@ const styles = StyleSheet.create({
   }
 });
 
-function PDFDocument({ image, tableId, qr, merchantName }) {
+function PDFDocument({ image, tableId, qr, merchantName, checkbox }) {
   return (
     <Document style={styles.background}>
       {tableId === 1 ? (
@@ -235,24 +321,30 @@ function PDFDocument({ image, tableId, qr, merchantName }) {
         </Page>
       ) : null}
       {tableId === 2 ? (
-        <Page style={styles.preview} size={{ width: 310, height: 436.75 }}>
+        <Page style={styles.preview} size={{ width: 440, height: 620 }}>
           <View>
             <Image source={verticalTable}></Image>
-            <Image source={qr} style={styles.verticalQr} />
-            <Image source={qrBorder} style={styles.qrBorder_2}></Image>
+            {image.length ? (
+              <View style={styles.logo_wrapper}>
+                <Image source={image} style={styles.logo_img} />
+              </View>
+            ) : null}
+            {image && image.length ? (
+              <>
+                <Image source={qr} style={styles.verticalQr} />
+                <Image source={qrBorder} style={styles.qrBorder_2}></Image>
+              </>
+            ) : (
+              <>
+                <Image source={qr} style={styles.verticalQr_22} />
+                <Image source={qrBorder} style={styles.qrBorder_22}></Image>
+              </>
+            )}
             <Text style={styles.merchantName_2}>{merchantName}</Text>
           </View>
         </Page>
       ) : null}
       {tableId === 3 ? (
-        // <Page style={styles.preview} size={{ width: 309.9525, height: 436.75 }}>
-        //   <View>
-        //     <Image source={verticalTableWIthInstruction}></Image>
-        //     <Image source={qr} style={styles.verticalQrInstruction} />
-        //     <Image source={qrBorder} style={styles.qrBorder_3}></Image>
-        //     <Text style={styles.merchantName_3}>{merchantName}</Text>
-        //   </View>
-        // </Page>
         <Page style={styles.preview} size={{ width: 218.5, height: 310 }}>
           <View>
             <Image source={TableCounter}></Image>
@@ -268,10 +360,26 @@ function PDFDocument({ image, tableId, qr, merchantName }) {
       {tableId === 4 ? (
         <Page style={styles.preview} size={{ width: 309.9525, height: 436.75 }}>
           <View>
-            <Image source={verticalTableWithCard}></Image>
-            <Image source={qr} style={styles.verticalTableWithCard} />
-            <Image source={qrBorder} style={styles.qrBorder_4}></Image>
-            <Text style={styles.merchantName_4}>{merchantName}</Text>
+            {checkbox ? (
+              <View>
+                <Image source={Table_A6_1}></Image>
+                {image.length ? (
+                  <View style={styles.logoWrapper_a6}>
+                    <Image source={image} style={styles.logo_a6}></Image>
+                  </View>
+                ) : null}
+                <Image source={qr} style={styles.table_a6_qr_1} />
+                <Image source={qrBorder} style={styles.qrBorder_4_1}></Image>
+                <Text style={styles.merchantName_4}>{merchantName}</Text>
+              </View>
+            ) : (
+              <View>
+                <Image source={Table_A6}></Image>
+                <Image source={qr} style={styles.table_a6_qr} />
+                <Image source={qrBorder} style={styles.qrBorder_4}></Image>
+                <Text style={styles.merchantName_4}>{merchantName}</Text>
+              </View>
+            )}
           </View>
         </Page>
       ) : null}

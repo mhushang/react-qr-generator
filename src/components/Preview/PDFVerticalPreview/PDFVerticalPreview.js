@@ -5,14 +5,23 @@ import VerticalTable from "../../../assets/images/VerticalTable.png";
 import olucha from "../../../assets/images/Olucha.png";
 import alifLogo from "../../../assets/images/alifLogo.png";
 
-import VerticalTableWithCard from "../../../assets/images/VerticalTableWithCard.png";
+// import VerticalTableWithCard from "../../../assets/images/VerticalTableWithCard.png";
+import Table_A6 from "../../../assets/images/A6.png";
+import Table_A6_1 from "../../../assets/images/A6_1.png";
+
 import TableCounter from "../../../assets/images/TableCounter.png";
 // import VerticalTableWIthInstruction from "../../../assets/images/VerticalTableWIthInstruction.png";
 
 import qrBorder from "../../../assets/images/VerticalQrBorder.png";
-import QRCode from "qrcode.react";
 
-function PDFVerticalPreview({ tableId, qr, image, merchantName, gotDataUrl }) {
+function PDFVerticalPreview({
+  tableId,
+  qr,
+  image,
+  merchantName,
+  gotDataUrl,
+  checkbox
+}) {
   useEffect(() => {
     function getBase64Image(imgUrl, callback) {
       var img = new Image();
@@ -67,6 +76,11 @@ function PDFVerticalPreview({ tableId, qr, image, merchantName, gotDataUrl }) {
                   </text>
                 </svg>
               </div>
+              {image && image.length > 1 ? (
+                <div className="merchant-logo">
+                  <img src={image} alt="logo" className="merchant-logo-img" />
+                </div>
+              ) : null}
               <img
                 src={VerticalTable}
                 alt="table"
@@ -75,74 +89,88 @@ function PDFVerticalPreview({ tableId, qr, image, merchantName, gotDataUrl }) {
             </div>
           ) : null}
           {tableId === 4 ? (
-            <div className="d-flex justify-content-center">
-              <img
-                src={qrBorder}
-                alt="qr-border"
-                className="qr-border qr-card"
-              />
-              <div className="qr-border qr-2 ">
-                {qr && qr.length ? (
+            <>
+              {checkbox ? (
+                <div className="d-flex justify-content-center">
+                  {image && image.length > 1 ? (
+                    <div className="merchant-logo-a6">
+                      <img
+                        src={image}
+                        alt="logo"
+                        className="merchant-logo-img-a6"
+                      />
+                    </div>
+                  ) : null}
                   <img
-                    src={qr}
-                    alt="qr"
-                    style={{
-                      width: "140px",
-                      marginLeft: "-8px",
-                      borderRadius: "12px"
-                    }}
+                    src={qrBorder}
+                    alt="qr-border"
+                    className="qr-border qr-card_1"
                   />
-                ) : null}
-              </div>
-              <div className="merchant-name merchantName">
-                <svg xmlns="http://www.w3.org/2000/svg">
-                  <text x="0" y="147" fill="white">
-                    {merchantName}
-                  </text>
-                </svg>
-              </div>
+                  <div className="qr-border qr-2-with-logo">
+                    {qr && qr.length ? (
+                      <img
+                        src={qr}
+                        alt="qr"
+                        style={{
+                          width: "180px",
+                          marginLeft: "-31px",
+                          borderRadius: "12px"
+                        }}
+                      />
+                    ) : null}
+                  </div>
+                  <div className="merchant-name merchantName">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                      <text x="0" y="147" fill="white">
+                        {merchantName}
+                      </text>
+                    </svg>
+                  </div>
 
-              <img
-                src={VerticalTableWithCard}
-                alt="table"
-                className="vertical-preview-image"
-              />
-            </div>
+                  <img
+                    src={Table_A6_1}
+                    alt="table"
+                    className="vertical-preview-image"
+                  />
+                </div>
+              ) : (
+                <div className="d-flex justify-content-center">
+                  <img
+                    src={qrBorder}
+                    alt="qr-border"
+                    className="qr-border qr-card"
+                  />
+                  <div className="qr-border qr-2 ">
+                    {qr && qr.length ? (
+                      <img
+                        src={qr}
+                        alt="qr"
+                        style={{
+                          width: "180px",
+                          marginLeft: "-31px",
+                          borderRadius: "12px"
+                        }}
+                      />
+                    ) : null}
+                  </div>
+                  <div className="merchant-name merchantName">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                      <text x="0" y="147" fill="white">
+                        {merchantName}
+                      </text>
+                    </svg>
+                  </div>
+
+                  <img
+                    src={Table_A6}
+                    alt="table"
+                    className="vertical-preview-image"
+                  />
+                </div>
+              )}
+            </>
           ) : null}
           {tableId === 3 ? (
-            // <div className="d-flex justify-content-center">
-            //   <img
-            //     src={qrBorder}
-            //     alt="qr-border"
-            //     className="qr-border instruction"
-            //   />
-            //   <div className="qr-border qr-3 ">
-            //     {qr && qr.length ? (
-            //       <img
-            //         src={qr}
-            //         alt="qr"
-            //         style={{
-            //           width: "108px",
-            //           marginLeft: "0.4px",
-            //           borderRadius: "12px"
-            //         }}
-            //       />
-            //     ) : null}
-            //   </div>
-            //   <div className="merchant-name-3 merchantName">
-            //     <svg xmlns="http://www.w3.org/2000/svg">
-            //       <text x="0" y="147" fill="white">
-            //         {merchantName}
-            //       </text>
-            //     </svg>
-            //   </div>
-            //   <img
-            //     src={VerticalTableWIthInstruction}
-            //     alt="table"
-            //     className="vertical-preview-image"
-            //   />
-            // </div>
-
             <div className="d-flex justify-content-center">
               {image && image.length > 1 ? (
                 <div className="merchant-logo">

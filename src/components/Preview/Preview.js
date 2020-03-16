@@ -4,7 +4,14 @@ import "./preview.scss";
 import PDFPreview from "./PDFPreview/PDFPreview";
 import PDFVerticalPreview from "./PDFVerticalPreview/PDFVerticalPreview";
 
-function Preview({ image, tableId, qr, merchantName, gotDataUrlParent }) {
+function Preview({
+  image,
+  tableId,
+  qr,
+  merchantName,
+  gotDataUrlParent,
+  checkbox
+}) {
   function gotDataUrl(event) {
     gotDataUrlParent(event);
   }
@@ -24,6 +31,7 @@ function Preview({ image, tableId, qr, merchantName, gotDataUrlParent }) {
               />
             ) : (
               <PDFVerticalPreview
+                checkbox={checkbox}
                 image={image}
                 tableId={tableId}
                 qr={qr}

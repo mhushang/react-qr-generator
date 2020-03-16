@@ -27,7 +27,6 @@ function Form({ tableId }) {
   const inputFile = useRef("");
   let [fileInput, setFileInput] = useState("");
   let [checkbox, setCheckbox] = useState(false);
-  const [activeClass, setActiveClass] = useState(1);
   const [qrImage, setQrImage] = useState("");
 
   useEffect(() => {
@@ -58,6 +57,7 @@ function Form({ tableId }) {
       (tableId === 3 && isValidName && isValidURL && isMerchantLogoValid)
     ) {
       setIsFormValid(true);
+      setIsOnBlured(true);
     } else {
       setIsFormValid(false);
     }
@@ -89,7 +89,6 @@ function Form({ tableId }) {
 
   function changeCheckboxHandler() {
     setCheckbox((checkbox = !checkbox));
-    // setCheckbox(true);
   }
 
   function fileInputChange(event) {
@@ -118,10 +117,6 @@ function Form({ tableId }) {
     setIsMerchantLogoValid(false);
   }
 
-  function activePreview(index) {
-    setActiveClass(index);
-  }
-
   function handleBlur() {
     if (merchantName && merchantName.length > 2) {
       setIsValidName(true);
@@ -147,43 +142,6 @@ function Form({ tableId }) {
     <div className="Form">
       <div className="row">
         <div className="col-lg-6">
-          {tableId === 2 || tableId === 4 ? (
-            <div className="pdf-preview-size">
-              <div className="preview-size-text">Андозаро интихоб кунед</div>
-              <div className="preview-size-block">
-                <div
-                  className={
-                    activeClass === 1
-                      ? "preview-size-block-item active"
-                      : "preview-size-block-item"
-                  }
-                  onClick={() => activePreview(1)}
-                >
-                  A4
-                </div>
-                <div
-                  className={
-                    activeClass === 2
-                      ? "preview-size-block-item active"
-                      : "preview-size-block-item"
-                  }
-                  onClick={() => activePreview(2)}
-                >
-                  A5
-                </div>
-                <div
-                  className={
-                    activeClass === 3
-                      ? "preview-size-block-item active"
-                      : "preview-size-block-item"
-                  }
-                  onClick={() => activePreview(3)}
-                >
-                  A6
-                </div>
-              </div>
-            </div>
-          ) : null}
           <form>
             <div className={tableId === 5 ? "form-area mb-5" : "form-area"}>
               <Input
@@ -210,12 +168,15 @@ function Form({ tableId }) {
                 validate={isValidURL}
                 errorText={"Ссылка хато аст"}
                 type={"text"}
-                onInputBlur={event => handleBlur(event.target.value)}
+                // onInputBlur={event => handleBlur(event.target.value)}
                 spanText={"Ссылкаи QR code"}
                 change={event => qrLinkHandler(event.target.value)}
               />
             </div>
-            {tableId === 1 || tableId === 3 ? (
+            {tableId === 1 ||
+            tableId === 2 ||
+            tableId === 3 ||
+            tableId === 4 ? (
               <>
                 {tableId !== 3 ? (
                   <div
@@ -274,26 +235,6 @@ function Form({ tableId }) {
                 ) : null}
               </>
             ) : null}
-            {tableId === 2 || tableId === 4 ? (
-              <div className="error-block">
-                <div className="error-icon">
-                  <ErrorIcon />
-                </div>
-                <div className="error-text">
-                  Ба ин намуди табличка логотип дохил карда намешавад. Барои
-                  дохил кардан ба&nbsp;
-                  <a
-                    className="bot-name"
-                    href="https://t.me/alifmarketbot"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    @alifmarketing
-                  </a>{" "}
-                  муроҷиат кунед.
-                </div>
-              </div>
-            ) : null}
             {!isFormValid ||
             !isOnBlured ||
             !qrImage ||
@@ -325,6 +266,7 @@ function Form({ tableId }) {
                     image={preview}
                     tableId={tableId}
                     qr={qrImage}
+                    checkbox={checkbox}
                     merchantName={merchantName}
                   />
                 }
@@ -354,6 +296,7 @@ function Form({ tableId }) {
             gotDataUrlParent={e => gotDataUrlParent(e)}
             image={preview}
             tableId={tableId}
+            checkbox={checkbox}
             qr={qrLink}
             merchantName={merchantName}
           />
