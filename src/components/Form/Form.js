@@ -12,6 +12,7 @@ import ErrorIcon from "./../../assets/images/ErrorIcon";
 
 import Preview from "../Preview/Preview";
 import { PDFDownloadLink } from "@react-pdf/renderer";
+import Stickers from "../Stickers/Stickers";
 
 function Form({ tableId }) {
   const [merchantName, setMerchantName] = useState("");
@@ -140,168 +141,176 @@ function Form({ tableId }) {
 
   return (
     <div className="Form">
-      <div className="row">
-        <div className="col-lg-6">
-          <form>
-            <div className={tableId === 5 ? "form-area mb-5" : "form-area"}>
-              <Input
-                value={merchantName}
-                placeholder={"Абдуллоев Абдулло"}
-                className={"form-control border-0"}
-                maxLength={20}
-                validate={isValidName}
-                errorText={"Ном наметавонад аз 3 харф кам шавад"}
-                type={"text"}
-                onInputBlur={event => handleBlur(event.target.value)}
-                spanText={
-                  tableId === 5
-                    ? "Номи ронанда"
-                    : "Номи мерчант (на зиёда аз 20 ҳарф)"
-                }
-                change={event => merchantNameHandler(event.target.value)}
-              />
-              <Input
-                value={qrLink}
-                placeholder={"Абдуллоев Абдулло"}
-                className={"form-control border-0"}
-                maxLength={256}
-                validate={isValidURL}
-                errorText={"Ссылка хато аст"}
-                type={"text"}
-                // onInputBlur={event => handleBlur(event.target.value)}
-                spanText={"Ссылкаи QR code"}
-                change={event => qrLinkHandler(event.target.value)}
-              />
-            </div>
-            {tableId === 1 ||
-            tableId === 2 ||
-            tableId === 3 ||
-            tableId === 4 ? (
-              <>
-                {tableId !== 3 ? (
-                  <div
-                    className={
-                      checkbox
-                        ? "custom-control custom-checkbox mb-4"
-                        : "custom-control custom-checkbox"
-                    }
-                  >
-                    <Checkbox
-                      className={"custom-control-input"}
-                      id={"autoSizingCheck"}
-                      checked={checkbox}
-                      change={changeCheckboxHandler}
-                    />
-                    <label
-                      className="custom-control-label"
-                      htmlFor="autoSizingCheck"
+      {tableId === 6 ? (
+        <div className="row">
+          <div className="col">
+            <Stickers />
+          </div>
+        </div>
+      ) : (
+        <div className="row">
+          <div className="col-lg-6">
+            <form>
+              <div className={tableId === 5 ? "form-area mb-5" : "form-area"}>
+                <Input
+                  value={merchantName}
+                  placeholder={"Абдуллоев Абдулло"}
+                  className={"form-control border-0"}
+                  maxLength={20}
+                  validate={isValidName}
+                  errorText={"Ном наметавонад аз 3 харф кам шавад"}
+                  type={"text"}
+                  onInputBlur={event => handleBlur(event.target.value)}
+                  spanText={
+                    tableId === 5
+                      ? "Номи ронанда"
+                      : "Номи мерчант (на зиёда аз 20 ҳарф)"
+                  }
+                  change={event => merchantNameHandler(event.target.value)}
+                />
+                <Input
+                  value={qrLink}
+                  placeholder={"Абдуллоев Абдулло"}
+                  className={"form-control border-0"}
+                  maxLength={256}
+                  validate={isValidURL}
+                  errorText={"Ссылка хато аст"}
+                  type={"text"}
+                  // onInputBlur={event => handleBlur(event.target.value)}
+                  spanText={"Ссылкаи QR code"}
+                  change={event => qrLinkHandler(event.target.value)}
+                />
+              </div>
+              {tableId === 1 ||
+              tableId === 2 ||
+              tableId === 3 ||
+              tableId === 4 ? (
+                <>
+                  {tableId !== 3 ? (
+                    <div
+                      className={
+                        checkbox
+                          ? "custom-control custom-checkbox mb-4"
+                          : "custom-control custom-checkbox"
+                      }
                     >
-                      <span className="checkbox-text">Бо логотип</span>
-                    </label>
-                  </div>
-                ) : null}
-                {checkbox || tableId === 3 ? (
-                  <div className="form-group file-form">
-                    <label className="btn-upload">
-                      <input
-                        type="file"
-                        name="fileupload"
-                        ref={inputFile}
-                        onChange={fileInputChange}
-                        accept="image/*"
+                      <Checkbox
+                        className={"custom-control-input"}
+                        id={"autoSizingCheck"}
+                        checked={checkbox}
+                        change={changeCheckboxHandler}
                       />
-                      <button
-                        className={
-                          isMerchantLogoValid ? "btn" : "btn btn-danger"
-                        }
+                      <label
+                        className="custom-control-label"
+                        htmlFor="autoSizingCheck"
                       >
-                        Ворид кардан
-                      </button>
-                    </label>
-                    {fileInput && fileInput.length ? (
-                      <>
+                        <span className="checkbox-text">Бо логотип</span>
+                      </label>
+                    </div>
+                  ) : null}
+                  {checkbox || tableId === 3 ? (
+                    <div className="form-group file-form">
+                      <label className="btn-upload">
                         <input
-                          type="text"
-                          className="form-control custom-input "
+                          type="file"
+                          name="fileupload"
+                          ref={inputFile}
                           onChange={fileInputChange}
-                          value={fileInput}
+                          accept="image/*"
                         />
-                        <span className="trash" onClick={clearInput}>
-                          <Trash />
-                        </span>
-                      </>
-                    ) : null}
-                  </div>
-                ) : null}
-              </>
-            ) : null}
-            {!isFormValid ||
-            !isOnBlured ||
-            !qrImage ||
-            (tableId === 3 && !isMerchantLogoValid) ? (
-              <Button
-                type={"button button-success margin-top"}
-                label={"Генерировать QR"}
-                click={handleBlur}
-              />
-            ) : null}
+                        <button
+                          className={
+                            isMerchantLogoValid ? "btn" : "btn btn-danger"
+                          }
+                        >
+                          Ворид кардан
+                        </button>
+                      </label>
+                      {fileInput && fileInput.length ? (
+                        <>
+                          <input
+                            type="text"
+                            className="form-control custom-input "
+                            onChange={fileInputChange}
+                            value={fileInput}
+                          />
+                          <span className="trash" onClick={clearInput}>
+                            <Trash />
+                          </span>
+                        </>
+                      ) : null}
+                    </div>
+                  ) : null}
+                </>
+              ) : null}
+              {!isFormValid ||
+              !isOnBlured ||
+              !qrImage ||
+              (tableId === 3 && !isMerchantLogoValid) ? (
+                <Button
+                  type={"button button-success margin-top"}
+                  label={"Генерировать QR"}
+                  click={handleBlur}
+                />
+              ) : null}
 
-            {(tableId !== 3 &&
-              isFormValid &&
-              isOnBlured &&
-              tableId &&
-              qrImage &&
-              merchantName) ||
-            (isFormValid &&
-              isOnBlured &&
-              tableId &&
-              qrImage &&
-              merchantName &&
-              tableId === 3 &&
-              isMerchantLogoValid) ? (
-              <PDFDownloadLink
-                renderMode={"svg"}
-                document={
-                  <PDFDocument
-                    image={preview}
-                    tableId={tableId}
-                    qr={qrImage}
-                    checkbox={checkbox}
-                    merchantName={merchantName}
-                  />
-                }
-                fileName={merchantName + ".pdf"}
-                style={{
-                  fontFamily: "Montserrat-Bold",
-                  textDecoration: "none",
-                  left: "0px",
-                  right: "0px",
-                  top: "0px",
-                  bottom: "0px",
-                  padding: "18px 44px",
-                  color: "white",
-                  background: "#39B980",
-                  borderRadius: "4px"
-                }}
-              >
-                {({ blob, url, loading, error }) =>
-                  loading ? "Loading document..." : "Экспорт PDF"
-                }
-              </PDFDownloadLink>
-            ) : null}
-          </form>
+              {(tableId !== 3 &&
+                isFormValid &&
+                isOnBlured &&
+                tableId &&
+                qrImage &&
+                merchantName) ||
+              (isFormValid &&
+                isOnBlured &&
+                tableId &&
+                qrImage &&
+                merchantName &&
+                tableId === 3 &&
+                isMerchantLogoValid) ? (
+                <PDFDownloadLink
+                  renderMode={"svg"}
+                  document={
+                    <PDFDocument
+                      image={preview}
+                      tableId={tableId}
+                      qr={qrImage}
+                      checkbox={checkbox}
+                      merchantName={merchantName}
+                    />
+                  }
+                  fileName={merchantName + ".pdf"}
+                  style={{
+                    fontFamily: "Montserrat-Bold",
+                    textDecoration: "none",
+                    left: "0px",
+                    right: "0px",
+                    top: "0px",
+                    bottom: "0px",
+                    padding: "18px 44px",
+                    color: "white",
+                    background: "#39B980",
+                    borderRadius: "4px"
+                  }}
+                >
+                  {({ blob, url, loading, error }) =>
+                    loading ? "Loading document..." : "Экспорт PDF"
+                  }
+                </PDFDownloadLink>
+              ) : null}
+            </form>
+          </div>
+          <div className="col-lg-6">
+            <Preview
+              gotDataUrlParent={e => gotDataUrlParent(e)}
+              image={preview}
+              tableId={tableId}
+              checkbox={checkbox}
+              qr={qrLink}
+              merchantName={merchantName}
+            />
+          </div>
         </div>
-        <div className="col-lg-6">
-          <Preview
-            gotDataUrlParent={e => gotDataUrlParent(e)}
-            image={preview}
-            tableId={tableId}
-            checkbox={checkbox}
-            qr={qrLink}
-            merchantName={merchantName}
-          />
-        </div>
-      </div>
+      )}
     </div>
   );
 }
