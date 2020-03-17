@@ -13,7 +13,7 @@ import option6 from "./shared/assets/images/sada-6.svg";
 import Form from "./components/Form/Form";
 
 function App() {
-  const [activeTable, setActiveTable] = useState(6);
+  const [activeTable, setActiveTable] = useState(4);
 
   function toggleActiveTable(index) {
     setActiveTable(index);

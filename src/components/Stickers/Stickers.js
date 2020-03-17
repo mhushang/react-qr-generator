@@ -55,7 +55,7 @@ function Stickers() {
             </div>
             <div className="cashback-download-link">
               <a
-                href="https://upload.alif.tj/download/18114/cashback-10.cdr"
+                href="https://upload.alif.tj/download/18116/cashback-10.cdr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -63,7 +63,7 @@ function Stickers() {
                 CDR
               </a>
               <a
-                href="https://upload.alif.tj/download/18115/cashback-10.pdf"
+                href="https://upload.alif.tj/download/18117/cashback-10.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -80,7 +80,7 @@ function Stickers() {
             </div>
             <div className="cashback-download-link">
               <a
-                href="https://upload.alif.tj/download/18114/cashback-15.cdr"
+                href="https://upload.alif.tj/download/18118/cashback-15.cdr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -88,7 +88,7 @@ function Stickers() {
                 CDR
               </a>
               <a
-                href="https://upload.alif.tj/download/18115/cashback-15.pdf"
+                href="https://upload.alif.tj/download/18119/cashback-15.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -105,7 +105,7 @@ function Stickers() {
             </div>
             <div className="cashback-download-link">
               <a
-                href="https://upload.alif.tj/download/18114/cashback-20.cdr"
+                href="https://upload.alif.tj/download/18120/cashback-20.cdr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -113,7 +113,7 @@ function Stickers() {
                 CDR
               </a>
               <a
-                href="https://upload.alif.tj/download/18115/cashback-20.pdf"
+                href="https://upload.alif.tj/download/18121/cashback-20.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -130,7 +130,7 @@ function Stickers() {
             </div>
             <div className="cashback-download-link">
               <a
-                href="https://upload.alif.tj/download/18114/cashback-25.cdr"
+                href="https://upload.alif.tj/download/18122/cashback-25.cdr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -138,7 +138,7 @@ function Stickers() {
                 CDR
               </a>
               <a
-                href="https://upload.alif.tj/download/18115/cashback-25.pdf"
+                href="https://upload.alif.tj/download/18123/cashback-25.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -155,7 +155,7 @@ function Stickers() {
             </div>
             <div className="cashback-download-link">
               <a
-                href="https://upload.alif.tj/download/18114/cashback-30.cdr"
+                href="https://upload.alif.tj/download/18124/cashback-30.cdr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -163,7 +163,7 @@ function Stickers() {
                 CDR
               </a>
               <a
-                href="https://upload.alif.tj/download/18115/cashback-30.pdf"
+                href="https://upload.alif.tj/download/18125/cashback-30.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -182,7 +182,7 @@ function Stickers() {
             </div>
             <div className="cashback-download-link">
               <a
-                href="https://upload.alif.tj/download/18114/cashback-35.cdr"
+                href="https://upload.alif.tj/download/18126/cashback-35.cdr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -190,7 +190,7 @@ function Stickers() {
                 CDR
               </a>
               <a
-                href="https://upload.alif.tj/download/18115/cashback-35.pdf"
+                href="https://upload.alif.tj/download/18127/cashback-35.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -208,7 +208,7 @@ function Stickers() {
             </div>
             <div className="cashback-download-link">
               <a
-                href="https://upload.alif.tj/download/18114/cashback-40.cdr"
+                href="https://upload.alif.tj/download/18128/cashback-40.cdr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -216,7 +216,7 @@ function Stickers() {
                 CDR
               </a>
               <a
-                href="https://upload.alif.tj/download/18115/cashback-40.pdf"
+                href="https://upload.alif.tj/download/18129/cashback-40.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -233,7 +233,7 @@ function Stickers() {
             </div>
             <div className="cashback-download-link">
               <a
-                href="https://upload.alif.tj/download/18114/cashback-45.cdr"
+                href="https://upload.alif.tj/download/18130/cashback-45.cdr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -241,7 +241,7 @@ function Stickers() {
                 CDR
               </a>
               <a
-                href="https://upload.alif.tj/download/18115/cashback-45.pdf"
+                href="https://upload.alif.tj/download/18131/cashback-45.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -258,7 +258,7 @@ function Stickers() {
             </div>
             <div className="cashback-download-link">
               <a
-                href="https://upload.alif.tj/download/18114/cashback-50.cdr"
+                href="https://upload.alif.tj/download/18132/cashback-50.cdr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
@@ -266,7 +266,7 @@ function Stickers() {
                 CDR
               </a>
               <a
-                href="https://upload.alif.tj/download/18115/cashback-50.pdf"
+                href="https://upload.alif.tj/download/18133/cashback-50.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="download-link-btn"
