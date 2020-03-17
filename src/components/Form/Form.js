@@ -8,7 +8,6 @@ import Button from "./../../shared/components/Button/Button";
 
 import Checkbox from "./../../shared/components/Checkbox/Checkbox";
 import Trash from "../../assets/images/Trash";
-import ErrorIcon from "./../../assets/images/ErrorIcon";
 
 import Preview from "../Preview/Preview";
 import { PDFDownloadLink } from "@react-pdf/renderer";
@@ -47,15 +46,16 @@ function Form({ tableId }) {
   }
 
   function formValidator() {
-    if (preview.length) {
-      setIsMerchantLogoValid(true);
-    } else {
-      setIsMerchantLogoValid(false);
-    }
+    // if (preview.length) {
+    //   setIsMerchantLogoValid(true);
+    // } else {
+    //   setIsMerchantLogoValid(false);
+    // }
 
     if (
-      (isValidName && isValidURL) ||
-      (tableId === 3 && isValidName && isValidURL && isMerchantLogoValid)
+      isValidName &&
+      isValidURL
+      //  ||(tableId === 3 && isValidName && isValidURL && isMerchantLogoValid)
     ) {
       setIsFormValid(true);
       setIsOnBlured(true);
@@ -99,11 +99,11 @@ function Form({ tableId }) {
 
       reader.onloadend = function() {
         setPreview(reader.result);
-        if (reader.result) {
-          setIsMerchantLogoValid(true);
-        } else {
-          setIsMerchantLogoValid(false);
-        }
+        // if (reader.result) {
+        //   setIsMerchantLogoValid(true);
+        // } else {
+        //   setIsMerchantLogoValid(false);
+        // }
       };
       if (file) {
         reader.readAsDataURL(file);
@@ -115,7 +115,7 @@ function Form({ tableId }) {
   function clearInput() {
     setFileInput("");
     setPreview([]);
-    setIsMerchantLogoValid(false);
+    // setIsMerchantLogoValid(false);
   }
 
   function handleBlur() {
@@ -243,10 +243,8 @@ function Form({ tableId }) {
                   ) : null}
                 </>
               ) : null}
-              {!isFormValid ||
-              !isOnBlured ||
-              !qrImage ||
-              (tableId === 3 && !isMerchantLogoValid) ? (
+              {!isFormValid || !isOnBlured || !qrImage ? (
+                // || (tableId === 3 && !isMerchantLogoValid) ? (
                 <Button
                   type={"button button-success margin-top"}
                   label={"Генерировать QR"}
@@ -254,19 +252,20 @@ function Form({ tableId }) {
                 />
               ) : null}
 
-              {(tableId !== 3 &&
-                isFormValid &&
-                isOnBlured &&
-                tableId &&
-                qrImage &&
-                merchantName) ||
-              (isFormValid &&
-                isOnBlured &&
-                tableId &&
-                qrImage &&
-                merchantName &&
-                tableId === 3 &&
-                isMerchantLogoValid) ? (
+              {// tableId !== 3 &&
+              isFormValid &&
+              isOnBlured &&
+              tableId &&
+              qrImage &&
+              merchantName ? (
+                //   ||
+                // (isFormValid &&
+                //   isOnBlured &&
+                //   tableId &&
+                //   qrImage &&
+                //   merchantName &&
+                //   tableId === 3 &&
+                //   isMerchantLogoValid)
                 <PDFDownloadLink
                   renderMode={"svg"}
                   document={
@@ -274,7 +273,6 @@ function Form({ tableId }) {
                       image={preview}
                       tableId={tableId}
                       qr={qrImage}
-                      checkbox={checkbox}
                       merchantName={merchantName}
                     />
                   }

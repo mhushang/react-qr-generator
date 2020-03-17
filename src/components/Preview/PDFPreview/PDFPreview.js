@@ -2,11 +2,8 @@ import React, { useEffect } from "react";
 
 import "./pdf-preview.scss";
 
-import axios from "axios";
-
 import Table from "../../../assets/images/Table";
 import qrBorder from "../../../assets/images/VerticalQrBorder.png";
-import QRCode from "qrcode.react";
 
 function PDFPreview({ image, qr, merchantName, gotDataUrl }) {
   useEffect(() => {

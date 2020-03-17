@@ -67,20 +67,29 @@ const styles = StyleSheet.create({
     marginLeft: 58,
     marginTop: 152
   },
+
+  qrBorder_3NoQrBorder: {
+    position: "absolute",
+    width: 100,
+    height: 100,
+    marginLeft: 58,
+    marginTop: 136
+  },
+
   qrBorder_4: {
     position: "absolute",
     width: 200,
     height: 200,
-    marginLeft: 55,
-    marginTop: 189
+    marginLeft: 50,
+    marginTop: 194
   },
 
   qrBorder_4_1: {
     position: "absolute",
     width: 200,
     height: 200,
-    marginLeft: 55,
-    marginTop: 160
+    marginLeft: 50,
+    marginTop: 156
   },
   logoWrapper: {
     textAlign: "center",
@@ -104,8 +113,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     position: "absolute",
     width: 244,
-    marginLeft: 32.5,
-    marginTop: 370
+    marginLeft: 30,
+    marginTop: 372
   },
   logo_a6: {
     position: "absolute",
@@ -129,19 +138,12 @@ const styles = StyleSheet.create({
     marginTop: 147.5
   },
 
-  verticalQrInstruction_33: {
+  verticalQrInstructionNoQr: {
     position: "absolute",
     width: 110,
     height: 110,
     marginLeft: 53.5,
-    marginTop: 135
-  },
-  qrBorder_33: {
-    position: "absolute",
-    width: 100,
-    height: 100,
-    marginLeft: 58,
-    marginTop: 139
+    marginTop: 131.5
   },
 
   //2
@@ -211,17 +213,17 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 218,
     height: 218,
-    marginLeft: 46.5,
+    marginLeft: 41,
     borderRadius: 12,
-    marginTop: 181
+    marginTop: 186
   },
 
   table_a6_qr_1: {
     position: "absolute",
     width: 218,
     height: 218,
-    marginLeft: 46.5,
-    marginTop: 152
+    marginLeft: 42,
+    marginTop: 147.5
   },
 
   merchantName_1: {
@@ -264,8 +266,8 @@ const styles = StyleSheet.create({
     transform: "rotate(270deg)",
     fontSize: 9,
     height: 200,
-    marginLeft: 396,
-    marginTop: 310,
+    marginLeft: 388,
+    marginTop: 300,
     textAlign: "left"
   },
   merchantName_5: {
@@ -289,7 +291,7 @@ const styles = StyleSheet.create({
   }
 });
 
-function PDFDocument({ image, tableId, qr, merchantName, checkbox }) {
+function PDFDocument({ image, tableId, qr, merchantName }) {
   return (
     <Document style={styles.background}>
       {tableId === 1 ? (
@@ -329,17 +331,18 @@ function PDFDocument({ image, tableId, qr, merchantName, checkbox }) {
                 <Image source={image} style={styles.logo_img} />
               </View>
             ) : null}
-            {image && image.length ? (
-              <>
-                <Image source={qr} style={styles.verticalQr} />
-                <Image source={qrBorder} style={styles.qrBorder_2}></Image>
-              </>
-            ) : (
-              <>
-                <Image source={qr} style={styles.verticalQr_22} />
-                <Image source={qrBorder} style={styles.qrBorder_22}></Image>
-              </>
-            )}
+            <Image
+              source={qr}
+              style={
+                image && image.length ? styles.verticalQr : styles.verticalQr_22
+              }
+            />
+            <Image
+              source={qrBorder}
+              style={
+                image && image.length ? styles.qrBorder_2 : styles.qrBorder_22
+              }
+            ></Image>
             <Text style={styles.merchantName_2}>{merchantName}</Text>
           </View>
         </Page>
@@ -351,35 +354,56 @@ function PDFDocument({ image, tableId, qr, merchantName, checkbox }) {
             <View style={styles.count_logo_wrapper}>
               <Image source={image} style={styles.count_logo_img} />
             </View>
-            <Image source={qr} style={styles.verticalQrInstruction} />
-            <Image source={qrBorder} style={styles.qrBorder_3}></Image>
+            <Image
+              source={qr}
+              style={
+                image && image.length
+                  ? styles.verticalQrInstruction
+                  : styles.verticalQrInstructionNoQr
+              }
+            />
+            <Image
+              source={qrBorder}
+              style={
+                image && image.length
+                  ? styles.qrBorder_3
+                  : styles.qrBorder_3NoQrBorder
+              }
+            ></Image>
             <Text style={styles.merchantName_3}>{merchantName}</Text>
           </View>
         </Page>
       ) : null}
       {tableId === 4 ? (
-        <Page style={styles.preview} size={{ width: 309.9525, height: 436.75 }}>
+        <Page style={styles.preview} size={{ width: 301, height: 448.75 }}>
           <View>
-            {checkbox ? (
-              <View>
-                <Image source={Table_A6_1}></Image>
-                {image.length ? (
-                  <View style={styles.logoWrapper_a6}>
-                    <Image source={image} style={styles.logo_a6}></Image>
-                  </View>
-                ) : null}
-                <Image source={qr} style={styles.table_a6_qr_1} />
-                <Image source={qrBorder} style={styles.qrBorder_4_1}></Image>
-                <Text style={styles.merchantName_4}>{merchantName}</Text>
-              </View>
-            ) : (
-              <View>
-                <Image source={Table_A6}></Image>
-                <Image source={qr} style={styles.table_a6_qr} />
-                <Image source={qrBorder} style={styles.qrBorder_4}></Image>
-                <Text style={styles.merchantName_4}>{merchantName}</Text>
-              </View>
-            )}
+            <View>
+              <Image
+                source={image && image.length ? Table_A6_1 : Table_A6}
+              ></Image>
+              {image.length ? (
+                <View style={styles.logoWrapper_a6}>
+                  <Image source={image} style={styles.logo_a6}></Image>
+                </View>
+              ) : null}
+              <Image
+                source={qr}
+                style={
+                  image && image.length
+                    ? styles.table_a6_qr_1
+                    : styles.table_a6_qr
+                }
+              />
+              <Image
+                source={qrBorder}
+                style={
+                  image && image.length
+                    ? styles.qrBorder_4_1
+                    : styles.qrBorder_4
+                }
+              ></Image>
+              <Text style={styles.merchantName_4}>{merchantName}</Text>
+            </View>
           </View>
         </Page>
       ) : null}

@@ -5,12 +5,10 @@ import VerticalTable from "../../../assets/images/VerticalTable.png";
 import olucha from "../../../assets/images/Olucha.png";
 import alifLogo from "../../../assets/images/alifLogo.png";
 
-// import VerticalTableWithCard from "../../../assets/images/VerticalTableWithCard.png";
 import Table_A6 from "../../../assets/images/A6.png";
 import Table_A6_1 from "../../../assets/images/A6_1.png";
 
 import TableCounter from "../../../assets/images/TableCounter.png";
-// import VerticalTableWIthInstruction from "../../../assets/images/VerticalTableWIthInstruction.png";
 
 import qrBorder from "../../../assets/images/VerticalQrBorder.png";
 
@@ -180,9 +178,19 @@ function PDFVerticalPreview({
               <img
                 src={qrBorder}
                 alt="qr-border"
-                className="qr-border instruction"
+                className={
+                  image && image.length
+                    ? "qr-border instruction"
+                    : "qr-border instruction no-logo-qr-border"
+                }
               />
-              <div className="qr-border qr-3 ">
+              <div
+                className={
+                  image && image.length
+                    ? "qr-border qr-3"
+                    : "qr-border qr-3 no-logo-qr"
+                }
+              >
                 {qr && qr.length ? (
                   <img
                     src={qr}

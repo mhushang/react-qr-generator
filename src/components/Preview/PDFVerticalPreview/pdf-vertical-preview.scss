@@ -32,13 +32,11 @@
   .qr-1 {
     z-index: 2;
     margin-top: 195px;
-    // margin-left: 195px;
   }
 
   .qr-2 {
     z-index: 2;
     margin-top: 173px;
-    // margin-left: 194px;
   }
 
   .qr-2-with-logo {
@@ -50,13 +48,24 @@
     z-index: 3;
     margin-top: 200px;
     margin-left: -1px;
-    // margin-left: 87px;
     width: 120px;
   }
+
+  .qr-border.instruction.no-logo-qr-border {
+    z-index: 3;
+    margin-top: 180px;
+    margin-left: -1px;
+    width: 120px;
+  }
+
   .qr-3 {
     z-index: 2;
     margin-top: 196px;
-    // margin-left: 195px;
+  }
+
+  .qr-3.no-logo-qr {
+    z-index: 2;
+    margin-top: 176px;
   }
 
   .merchant-logo {
