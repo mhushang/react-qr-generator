@@ -1,6 +1,6 @@
 import React from "react";
 import "./pdf-document.scss";
-import font from "./../../shared/assets/fonts/Arial.ttf";
+import font from "./../../shared/assets/fonts/Montserrat-Medium.ttf";
 
 import {
   Page,
@@ -9,7 +9,7 @@ import {
   Document,
   StyleSheet,
   Image,
-  Font
+  Font,
 } from "@react-pdf/renderer";
 
 import qrBorder from "./../../assets/images/VerticalQrBorder.png";
@@ -25,8 +25,8 @@ import Table_A6 from "./../../assets/images/A6.png";
 import Table_A6_1 from "./../../assets/images/A6_1.png";
 
 Font.register({
-  family: "Arial",
-  src: font
+  family: "Montserrat-Medium",
+  src: font,
 });
 
 const styles = StyleSheet.create({
@@ -35,14 +35,14 @@ const styles = StyleSheet.create({
     width: 164,
     height: 164,
     marginLeft: 313.5,
-    marginTop: 107
+    marginTop: 107,
   },
   qrBorder_1: {
     position: "absolute",
     width: 150,
     height: 150,
     marginLeft: 320,
-    marginTop: 112
+    marginTop: 112,
   },
 
   qr_11: {
@@ -50,14 +50,14 @@ const styles = StyleSheet.create({
     width: 164,
     height: 164,
     marginLeft: 313.5,
-    marginTop: 92
+    marginTop: 92,
   },
   qrBorder_11: {
     position: "absolute",
     width: 150,
     height: 150,
     marginLeft: 320,
-    marginTop: 98
+    marginTop: 98,
   },
 
   qrBorder_3: {
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginLeft: 58,
-    marginTop: 152
+    marginTop: 152,
   },
 
   qrBorder_3NoQrBorder: {
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginLeft: 58,
-    marginTop: 136
+    marginTop: 136,
   },
 
   qrBorder_4: {
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     marginLeft: 50,
-    marginTop: 194
+    marginTop: 194,
   },
 
   qrBorder_4_1: {
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     marginLeft: 50,
-    marginTop: 156
+    marginTop: 156,
   },
   logoWrapper: {
     textAlign: "center",
@@ -98,13 +98,13 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 158,
     marginLeft: 318,
-    marginTop: 72
+    marginTop: 72,
   },
   logo: {
     position: "absolute",
     maxWidth: 158,
     height: 28,
-    maxHeight: 28
+    maxHeight: 28,
   },
 
   logoWrapper_a6: {
@@ -114,13 +114,13 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 244,
     marginLeft: 30,
-    marginTop: 372
+    marginTop: 372,
   },
   logo_a6: {
     position: "absolute",
     maxWidth: 244,
     height: 46,
-    maxHeight: 46
+    maxHeight: 46,
   },
 
   olucha_qr: {
@@ -128,14 +128,14 @@ const styles = StyleSheet.create({
     width: 134,
     height: 134,
     marginLeft: 38,
-    marginTop: 114
+    marginTop: 114,
   },
   verticalQrInstruction: {
     position: "absolute",
     width: 110,
     height: 110,
     marginLeft: 53.5,
-    marginTop: 147.5
+    marginTop: 147.5,
   },
 
   verticalQrInstructionNoQr: {
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     width: 110,
     height: 110,
     marginLeft: 53.5,
-    marginTop: 131.5
+    marginTop: 131.5,
   },
 
   //2
@@ -154,13 +154,13 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 200,
     marginLeft: 122,
-    marginTop: 244
+    marginTop: 244,
   },
   logo_img: {
     position: "absolute",
     maxWidth: 200,
     height: 50,
-    maxHeight: 50
+    maxHeight: 50,
   },
 
   qrBorder_2: {
@@ -168,14 +168,14 @@ const styles = StyleSheet.create({
     width: 190,
     height: 190,
     marginLeft: 126,
-    marginTop: 310
+    marginTop: 310,
   },
   verticalQr: {
     position: "absolute",
     width: 212,
     height: 212,
     marginLeft: 115,
-    marginTop: 301
+    marginTop: 301,
   },
 
   verticalQr_22: {
@@ -183,14 +183,14 @@ const styles = StyleSheet.create({
     width: 212,
     height: 212,
     marginLeft: 115,
-    marginTop: 281
+    marginTop: 281,
   },
   qrBorder_22: {
     position: "absolute",
     width: 190,
     height: 190,
     marginLeft: 126,
-    marginTop: 290
+    marginTop: 290,
   },
 
   count_logo_wrapper: {
@@ -200,13 +200,13 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 110,
     marginLeft: 53.5,
-    marginTop: 118
+    marginTop: 118,
   },
   count_logo_img: {
     position: "absolute",
     maxWidth: 110,
     height: 25,
-    maxHeight: 25
+    maxHeight: 25,
   },
 
   table_a6_qr: {
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     height: 218,
     marginLeft: 41,
     borderRadius: 12,
-    marginTop: 186
+    marginTop: 186,
   },
 
   table_a6_qr_1: {
@@ -223,62 +223,62 @@ const styles = StyleSheet.create({
     width: 218,
     height: 218,
     marginLeft: 42,
-    marginTop: 147.5
+    marginTop: 147.5,
   },
 
   merchantName_1: {
     position: "absolute",
     color: "white",
-    fontFamily: "Arial",
+    fontFamily: "Montserrat-Medium",
     transform: "rotate(-90deg)",
     fontSize: 9,
     height: 200,
     marginLeft: 612,
     marginTop: 170,
-    textAlign: "left"
+    textAlign: "left",
   },
   merchantName_2: {
     position: "absolute",
     color: "white",
-    fontFamily: "Arial",
+    fontFamily: "Montserrat-Medium",
     transform: "rotate(270deg)",
     fontSize: 9,
     height: 200,
     marginLeft: 524,
     marginTop: 482,
-    textAlign: "left"
+    textAlign: "left",
   },
   merchantName_3: {
     position: "absolute",
     color: "white",
-    fontFamily: "Arial",
+    fontFamily: "Montserrat-Medium",
     transform: "rotate(270deg)",
     fontSize: 9,
     height: 200,
     marginLeft: 305,
     marginTop: 190,
-    textAlign: "left"
+    textAlign: "left",
   },
   merchantName_4: {
     position: "absolute",
     color: "white",
-    fontFamily: "Arial",
+    fontFamily: "Montserrat-Medium",
     transform: "rotate(270deg)",
     fontSize: 9,
     height: 200,
     marginLeft: 388,
     marginTop: 300,
-    textAlign: "left"
+    textAlign: "left",
   },
   merchantName_5: {
     position: "absolute",
     color: "white",
-    fontFamily: "Arial",
+    fontFamily: "Montserrat-Medium",
     fontSize: 10,
     width: "100%",
     // marginLeft: 210,
     marginTop: 280,
-    textAlign: "center"
+    textAlign: "center",
   },
 
   alifLogo: {
@@ -287,8 +287,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 164,
     marginLeft: 92,
-    zIndex: "4"
-  }
+    zIndex: "4",
+  },
 });
 
 function PDFDocument({ image, tableId, qr, merchantName }) {
